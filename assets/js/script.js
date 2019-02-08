@@ -309,5 +309,13 @@
 			$(this).closest("li").addClass("active");
 		}
 	});
+
+
+	$(window).on('pageshow', function () {
+		var vids = document.querySelectorAll('video');
+		for (var i = 0; i < vids.length;) {
+			vids[i].play();
+		}
+	})
 	
 })(jQuery);
