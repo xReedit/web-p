@@ -36,7 +36,8 @@
 			<div class="video-background">
 				<!-- <iframe src="https://www.youtube.com/embed/nrJtHemSPW4?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&playlist=qaOvHKG0Tio" ></iframe> -->
 				<!-- <iframe src="https://www.youtube.com/embed/GRAXRqXgCK0?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1" ></iframe> -->
-				<iframe class="video" src="https://www.youtube.com/embed/GRAXRqXgCK0?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&playlist=PLbCCiSfsOKf9msL0pG0FZCuE0HwmKvkrb"></iframe>
+				<!-- <iframe class="video" src="https://www.youtube.com/embed/GRAXRqXgCK0?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&playlist=PLbCCiSfsOKf9msL0pG0FZCuE0HwmKvkrb" ></iframe> -->
+				<div id="player"></div>
 				<!-- <iframe src="https://www.youtube.com/embed/GRAXRqXgCK0?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&list=PLbCCiSfsOKf9msL0pG0FZCuE0HwmKvkrb" allow="autoplay; encrypted-media"></iframe> -->
 			</div>
 			<div class="video-foreground gradiant-background gradiant-overlay"></div>
@@ -368,5 +369,31 @@
 		
 		<script src="assets/js/jquery.bundle.js"></script>
 		<script src="assets/js/script.js"></script>		
+
+		<script>
+			// 2. This code loads the IFrame Player API code asynchronously.
+			var tag = document.createElement('script');
+
+			tag.src = "https://www.youtube.com/iframe_api";
+			var firstScriptTag = document.getElementsByTagName('script')[0];
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+			// 3. This function creates an <iframe> (and YouTube player)
+			//    after the API code downloads.
+			var player;
+			function onYouTubeIframeAPIReady() {
+					var player;
+					player = new YT.Player('player', {
+						videoId: 'GRAXRqXgCK0',
+						playerVars: { 'autoplay': 1, 'controls': 0, 'mute':0 },
+						// events: {
+						// 	'onReady': onPlayerReady,
+						// 	'onPlaybackQualityChange': onPlayerPlaybackQualityChange,
+						// 	'onStateChange': onPlayerStateChange,
+						// 	'onError': onPlayerError
+						// }
+					});
+				}
+		</script>
 	</body>
 </html>
