@@ -43,7 +43,7 @@
 								<div class="col-md-12">
 									<div class="contact-info white-bg text-center">
 										<p style="color: grey">Numero de comprobante, Ej: F001-00001</p>
-										<form id="contact-form" method="post">											
+										<form id="contact-form" action="/form/comprobante.service.php" method="post">											
 											<div class="form-group row">
 												<div class="form-field gutter-10 form-m-bttm">
 													<input name="contact-name" type="text" placeholder="DNI / RUC *" class="form-control txt-comprobante required">
@@ -56,12 +56,14 @@
 												</div>
 											</div>
 											<br>											
+											<div class="g-recaptcha" data-sitekey="6LeTVZAUAAAAAEzn5l42glI_kk-skgk6ZnM8kid0"></div>
+											<br>											
 											<button type="submit" class="button solid-btn sb-h">Consultar</button>
 										</form>
 									</div>
 								</div>
 
-							</div>
+							</div>							
 						</div>
 						<!-- .col -->
 					</div><!-- .row -->					
@@ -78,10 +80,6 @@
 		<!-- Preloader !remove please if you do not want -->
 		<div id="preloader"><div id="status">&nbsp;</div></div> 
 		<!-- Preloader End -->
-		
-		<!-- Google Map Script -->
-		<script src="https://maps.google.com/maps/api/js?key=AIzaSyD6cxB4idvB67_Mz1ScQn-_nBJmltUaS-g"></script> 
-		<script src="assets/js/googleMap.js"></script>
 
 		<!-- JavaScript
 		================================================== -->
@@ -89,6 +87,15 @@
 		
 		<script src="assets/js/jquery.bundle.js"></script>
 		<script src="assets/js/script.js"></script>
+		
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+		<!-- <script>
+			grecaptcha.ready(function () {
+				grecaptcha.execute('6LeTVZAUAAAAAEzn5l42glI_kk-skgk6ZnM8kid0', { action: 'homepage' }).then(function (token) {
+		        console.log(token);
+		      });
+		  });
+		</script> -->
 		
 	</body>
 </html>
