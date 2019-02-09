@@ -47,17 +47,17 @@
 										<form id="contact-form" action="/form/comprobante.service.php" method="post">											
 											<div class="form-group row">
 												<div class="form-field gutter-10 form-m-bttm">
-													<input name="contact-name" type="text" placeholder="DNI / RUC *" class="form-control txt-comprobante required">
+													<input name="contact-name" type="text" placeholder="DNI / RUC *" class="form-control txt-comprobante required" required>
 												</div>												
 											</div>
 											
 											<div class="form-group row">
 												<div class="form-field gutter-10">
-													<input name="contact-name" type="text" placeholder="Numero del comprobante *" class="form-control txt-comprobante required">
+													<input name="contact-name" type="text" placeholder="Numero del comprobante *" class="form-control txt-comprobante required" required>
 												</div>
 											</div>
 											<br>											
-											<input style="color: grey" type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" /><br>
+											<p style="color: grey" id="g-recaptcha-response" name="g-recaptcha-response"></p> </br>
 											<br>											
 											<button type="submit" class="button solid-btn sb-h">Consultar</button>
 										</form>										
