@@ -36,8 +36,8 @@
 			<div class="video-background">
 				<!-- <iframe src="https://www.youtube.com/embed/nrJtHemSPW4?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&playlist=qaOvHKG0Tio" ></iframe> -->
 				<!-- <iframe src="https://www.youtube.com/embed/GRAXRqXgCK0?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1" ></iframe> -->
-				<!-- <iframe id="video" class="video" src="https://www.youtube.com/embed/GRAXRqXgCK0?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&playlist=PLbCCiSfsOKf9msL0pG0FZCuE0HwmKvkrb" ></iframe> -->
-				<div id="player"></div>
+				<iframe id="player" class="video" src="https://www.youtube.com/embed/GRAXRqXgCK0?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&playlist=PLbCCiSfsOKf9msL0pG0FZCuE0HwmKvkrb" ></iframe>
+				<!-- <div id="player"></div> -->
 			</div>
 			<div class="video-foreground gradiant-background gradiant-overlay"></div>
 			<div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
@@ -395,7 +395,7 @@
 				}
 		</script> -->
 
-		<script>
+		<!-- <script>
 			// 1. This code loads the IFrame Player API code asynchronously.
 			var tag = document.createElement('script');
 
@@ -413,9 +413,11 @@
 					playerVars: {
 						autoplay: 1,
 						loop: 1,
+						mute:1,
+						rel:0,
 						controls: 0,
 						showinfo: 0,
-						autohide: 1,
+						// autohide: 1,
 						modestbranding: 1,
 						vq: 'hd1080'
 					},
@@ -440,6 +442,13 @@
 			function stopVideo() {
 				player.stopVideo();
 			}
+		</script> -->
+		
+		<script type='text/javascript' src='http://www.youtube.com/iframe_api'></script>
+		<script type='text/javascript'>
+			var player;
+			function onYouTubeIframeAPIReady() { player = new YT.Player('player', { events: { onReady: onPlayerReady } }) }
+			function onPlayerReady(event) { player.mute(); player.setVolume(0); player.playVideo(); }
 		</script>
 	</body>
 </html>
