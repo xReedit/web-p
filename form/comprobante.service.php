@@ -18,7 +18,7 @@ if($_POST){
     }
     $Return = getCaptcha($_POST['g-recaptcha-response']);
     //var_dump($Return);
-    if($Return->success == true && $Return->score > 0.8){
+    if($Return->success == true && $Return->score > 0.5){
         $msj="Succes!";
         $res=true;
 		// comprobar comprobantes
