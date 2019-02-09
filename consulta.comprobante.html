@@ -13,6 +13,7 @@
 		<!-- Custom styles for this template -->
 		<link href="assets/css/style.css?ver=131" rel="stylesheet">
 		<link href="assets/css/theme-green-blue.css?ver=131" rel="stylesheet">		
+		<script src='https://www.google.com/recaptcha/api.js?render=<?php echo SITE_KEY;?>'></script>
 	</head>
 	<body class="overflow-scroll">
 		
@@ -56,11 +57,10 @@
 												</div>
 											</div>
 											<br>											
-											<div class="g-recaptcha" data-sitekey="6LcjWZAUAAAAADDBkGngrdQmQJeRmwIrU6zZYV9G"></div>
+											<input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" /><br>
 											<br>											
 											<button type="submit" class="button solid-btn sb-h">Consultar</button>
-										</form>
-										<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+										</form>										
 									</div>
 								</div>
 
@@ -90,13 +90,15 @@
 		<script src="assets/js/script.js"></script>
 		
 		
-		<!-- <script>
+		<script>
 			grecaptcha.ready(function () {
-				grecaptcha.execute('6LeTVZAUAAAAAEzn5l42glI_kk-skgk6ZnM8kid0', { action: 'homepage' }).then(function (token) {
-		        console.log(token);
-		      });
-		  });
-		</script> -->
+				grecaptcha.execute('<?php echo SITE_KEY; ?>', { action: 'homepage' })
+					.then(function (token) {
+						//console.log(token);
+						document.getElementById('g-recaptcha-response').value = token;
+					});
+			});
+		</script>
 		
 	</body>
 </html>
