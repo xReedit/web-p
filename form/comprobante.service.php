@@ -1,4 +1,8 @@
 <?php
+
+header('Access-Control-Allow-Origin: *');
+header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
+
 define('SITE_KEY', '6LeRWZAUAAAAAHZOZ-Ezg7OUEbPjDa3jJncjU1o5');
 define('SECRET_KEY', '6LeRWZAUAAAAAL5lS3GZ1eB_SQ9Dg0Qbly_mgpkZ');
 
@@ -11,10 +15,10 @@ if($_POST){
     $Return = getCaptcha($_POST['g-recaptcha-response']);
     //var_dump($Return);
     if($Return->success == true && $Return->score > 0.8){
-		echo "Succes!";
+		return "Succes!";
 		// comprobar comprobantes
     }else{
-        echo "Eres un robot";
+        return "Eres un robot";
 	}
 	
 }

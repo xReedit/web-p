@@ -6,21 +6,17 @@ grecaptcha.ready(function () {
 });
 
 function consultar() {
-	const formElement = document.getElementById("frm_doc");
-	const data = new URLSearchParams();
-	for (const pair of new FormData(formElement)) {
-		data.append(pair[0], pair[1]);
-	}
+	var formData = new FormData(document.getElementById("contact-form"));
 
-	fetch('comprobante.php', {
-		method: 'post',
-		body: data,
+	fetch("../../../form/comprobante.service.php", {
+		method: "post",
+		body: formData
 	})
-	.then((res)=>{
-		return res.json();
-	})
-	.then((res)=>{
-		console.log(res);
-	})
+    .then(res => {
+      return res.json();
+    })
+    .then(res => {
+      console.log(res);
+    });
 		
 }

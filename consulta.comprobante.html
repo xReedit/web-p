@@ -44,8 +44,8 @@
 								<div class="col-md-12">
 									<div class="contact-info white-bg text-center">
 										<p style="color: grey">Numero de comprobante, Ej: F001-00001</p>
-										<form id="contact-form" method="post">											
-											<div class="form-group row" id="frm_doc">
+										<form id="contact-form">											
+											<div class="form-group row">
 												<div class="form-field gutter-10 form-m-bttm">
 													<input name="num_documento" id="num_documento" type="text" placeholder="DNI / RUC *" class="form-control txt-comprobante required" required>
 												</div>												
@@ -58,7 +58,7 @@
 											</div>
 											<br>											
 											<input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" /><br>																			
-											<button onclick="consultar();" class="button solid-btn sb-h">Consultar</button>
+											<button onclick="consultar()" class="button solid-btn sb-h">Consultar</button>
 										</form>										
 									</div>
 								</div>
