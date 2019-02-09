@@ -2,9 +2,13 @@
 
 header('Access-Control-Allow-Origin: *');
 header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
+header('Content-type: application/json');
 
 define('SITE_KEY', '6LeRWZAUAAAAAHZOZ-Ezg7OUEbPjDa3jJncjU1o5');
 define('SECRET_KEY', '6LeRWZAUAAAAAL5lS3GZ1eB_SQ9Dg0Qbly_mgpkZ');
+
+$msj = '';
+$res;
 
 if($_POST){
     function getCaptcha($SecretKey){
@@ -15,14 +19,30 @@ if($_POST){
     $Return = getCaptcha($_POST['g-recaptcha-response']);
     //var_dump($Return);
     if($Return->success == true && $Return->score > 0.8){
-		return "Succes!";
+        $msj="Succes!";
+        $res=true;
 		// comprobar comprobantes
     }else{
-        return "Eres un robot";
-	}
+        $msj="Eres un robot!";
+        $res=false;
+        // print "Eres un robot";
+    }
+
+    responder($res,$msj);
+    
+    
+
 	
 }
 
 
+function responder($res, $msj){
+    $response = array(
+        'res' => $res,
+        'msj'=> $msj
+    );
+
+    echo json_encode($response); 
+}
 
 ?>

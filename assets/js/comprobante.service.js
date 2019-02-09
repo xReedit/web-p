@@ -6,17 +6,22 @@ grecaptcha.ready(function () {
 });
 
 function consultar() {
-	var formData = new FormData(document.getElementById("contact-form"));
+	const e_res = $("#txt_res");
+	const formData = new FormData(document.getElementById("contact-form"));	
 
+	e_res.addClass("xInvisible");
 	fetch("../../../form/comprobante.service.php", {
 		method: "post",
 		body: formData
-	})
-    .then(res => {
-      return res.json();
-    })
-    .then(res => {
-      console.log(res);
+		}).then(function (response) {
+			return response.json();
+		}).then(function (res) {
+			if (res.res) { // si todo va bien
+				e_res.text(res.msj);
+			} else {				
+				e_res.removeClass("xInvisible");
+				e_res.text(res.msj);				
+			}
     });
 		
 }
