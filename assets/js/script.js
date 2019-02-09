@@ -300,22 +300,5 @@
 		// Stop here.
       );
 	}
-	
-	// Active page menu when click ( only for demo )
-	var url = window.location.href;
-	var $nav_link = $(".dropdown li a");
-	$nav_link.each(function() {
-		if (url === (this.href)) {
-			$(this).closest("li").addClass("active");
-		}
-	});
-
-
-	$(window).on('pageshow', function () {
-		var vids = document.querySelectorAll('video');
-		for (var i = 0; i < vids.length;) {
-			vids[i].play();
-		}
-	})
-	
+			
 })(jQuery);
