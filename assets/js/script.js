@@ -86,7 +86,7 @@
 		  var c_item = ($self.data('items')) ? $self.data('items') : 4;
 		  var c_item_t = (c_item >= 3) ? 3 : c_item;
 		  var c_item_m = (c_item_t >= 2) ? 2 : c_item_t;
-		  var c_delay =($self.data('delay')) ? $self.data('delay') : 6000;
+		  var c_delay =($self.data('delay')) ? $self.data('delay') : 2000;
 		  var c_auto =($self.data('auto')) ? true : false;
 		  var c_loop =($self.data('loop')) ? true : false;
 		  var c_dots = ($self.data('dots')) ? true : false;
