@@ -11,39 +11,14 @@ if($_POST){
     $Return = getCaptcha($_POST['g-recaptcha-response']);
     //var_dump($Return);
     if($Return->success == true && $Return->score > 0.8){
-        echo "Succes!";
+		echo "Succes!";
+		// comprobar comprobantes
     }else{
         echo "Eres un robot";
 	}
 	
-	$Return.reset();
 }
 
-
-// $recaptcha = $_POST["g-recaptcha-response"];
-
-//     $url = 'https://www.google.com/recaptcha/api/siteverify';
-//     $data = array(
-//         'secret' => '6LeRWZAUAAAAAHZOZ-Ezg7OUEbPjDa3jJncjU1o5',
-//         'response' => $recaptcha
-//     );
-
-//     $options = array(
-//         'http' => array (
-//             'method' => 'POST',
-//             'content' => http_build_query($data)
-//         )
-//     );
-
-//     $context  = stream_context_create($options);
-//     $verify = file_get_contents($url, false, $context);
-//     $captcha_success = json_decode($verify);
-    
-//     if ($captcha_success->success) {
-//         echo 'Se envía el formulario';
-//     } else {
-//         echo 'No se envía el formulario';
-//     }
 
 
 ?>
