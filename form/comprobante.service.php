@@ -4,7 +4,7 @@ $recaptcha = $_POST["g-recaptcha-response"];
 
     $url = 'https://www.google.com/recaptcha/api/siteverify';
     $data = array(
-        'secret' => '6LeTVZAUAAAAAEzn5l42glI_kk-skgk6ZnM8kid0',
+        'secret' => '6LcFWZAUAAAAANPMp17k1KAPbNzscutJiF5knaKa',
         'response' => $recaptcha
     );
 
