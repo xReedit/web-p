@@ -93,7 +93,7 @@
 			grecaptcha.ready(function () {
 				grecaptcha.execute('6LeRWZAUAAAAAHZOZ-Ezg7OUEbPjDa3jJncjU1o5', { action: 'homepage' })
 					.then(function (token) {
-						//console.log(token);
+						console.log(token);
 						document.getElementById('g-recaptcha-response').value = token;
 					});
 			});

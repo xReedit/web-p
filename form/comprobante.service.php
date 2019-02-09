@@ -10,11 +10,13 @@ if($_POST){
     }
     $Return = getCaptcha($_POST['g-recaptcha-response']);
     //var_dump($Return);
-    if($Return->success == true && $Return->score > 0.4){
+    if($Return->success == true && $Return->score > 0.8){
         echo "Succes!";
     }else{
         echo "Eres un robot";
-    }
+	}
+	
+	$Return.reset();
 }
 
 
