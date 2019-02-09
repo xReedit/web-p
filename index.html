@@ -36,9 +36,8 @@
 			<div class="video-background">
 				<!-- <iframe src="https://www.youtube.com/embed/nrJtHemSPW4?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&playlist=qaOvHKG0Tio" ></iframe> -->
 				<!-- <iframe src="https://www.youtube.com/embed/GRAXRqXgCK0?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1" ></iframe> -->
-				<!-- <iframe class="video" src="https://www.youtube.com/embed/GRAXRqXgCK0?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&playlist=PLbCCiSfsOKf9msL0pG0FZCuE0HwmKvkrb" ></iframe> -->
+				<!-- <iframe id="video" class="video" src="https://www.youtube.com/embed/GRAXRqXgCK0?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&playlist=PLbCCiSfsOKf9msL0pG0FZCuE0HwmKvkrb" ></iframe> -->
 				<div id="player"></div>
-				<!-- <iframe src="https://www.youtube.com/embed/GRAXRqXgCK0?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&list=PLbCCiSfsOKf9msL0pG0FZCuE0HwmKvkrb" allow="autoplay; encrypted-media"></iframe> -->
 			</div>
 			<div class="video-foreground gradiant-background gradiant-overlay"></div>
 			<div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
@@ -370,7 +369,7 @@
 		<script src="assets/js/jquery.bundle.js"></script>
 		<script src="assets/js/script.js"></script>		
 
-		<script>
+		<!-- <script>
 			// 2. This code loads the IFrame Player API code asynchronously.
 			var tag = document.createElement('script');
 
@@ -394,6 +393,53 @@
 						// }
 					});
 				}
+		</script> -->
+
+		<script>
+			// 1. This code loads the IFrame Player API code asynchronously.
+			var tag = document.createElement('script');
+
+			tag.src = "https://www.youtube.com/iframe_api";
+			var firstScriptTag = document.getElementsByTagName('script')[0];
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+			// 2. This function creates an <iframe> (and YouTube player)
+			//    after the API code downloads.
+			var player;
+			function onYouTubeIframeAPIReady() {
+				player = new YT.Player('player', {
+					height: '100%',
+					width: '100%',
+					playerVars: {
+						autoplay: 1,
+						loop: 1,
+						controls: 0,
+						showinfo: 0,
+						autohide: 1,
+						modestbranding: 1,
+						vq: 'hd1080'
+					},
+					videoId: 'GRAXRqXgCK0',
+					events: {
+						'onReady': onPlayerReady,
+						'onStateChange': onPlayerStateChange
+					}
+				});
+			}
+
+			// 3. The API will call this function when the video player is ready.
+			function onPlayerReady(event) {
+				event.target.playVideo();
+				player.mute();
+			}
+
+			var done = false;
+			function onPlayerStateChange(event) {
+
+			}
+			function stopVideo() {
+				player.stopVideo();
+			}
 		</script>
 	</body>
 </html>
