@@ -2936,6 +2936,22 @@ label.error {
 .form-results:last-child {
 	margin-bottom: 0;
 }
+.xfooter {
+	bottom: 0;
+	/* position: fixed; */
+	position: absolute;
+	width: 100%;
+}
+
+.txt-comprobante {
+	border: none !important;
+	border-radius: 0px !important;
+	border-bottom: 1px solid grey !important;
+}
+
+.txt-comprobante.error {
+	border: 1px solid #f00 !important;
+}
 
 /* 15. Footer Section*/
 .footer-section{
@@ -3179,7 +3195,7 @@ label.error {
 /* @v120 -s */
 .overflow-scroll{
 	overflow: hidden !important;
-	overflow-y: scroll !important;
+	overflow-y: auto !important;
 }
 .section-overflow-fix{
 	position: relative;
