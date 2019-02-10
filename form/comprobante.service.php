@@ -34,7 +34,7 @@ if($_POST){
         sendPost($_data);
         
     }else{
-        $msj="No se encontro el comprobante...(r)";
+        $msj="No se encontro el comprobante...(r) ".$Return->score;
         $res=false;
         responder($res,$msj,'');        
     }	
