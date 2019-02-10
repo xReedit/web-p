@@ -34,7 +34,7 @@ if($_POST){
         sendPost($_data);
         
     }else{
-        $msj="No se encontro el comprobante...";
+        $msj="No se encontro el comprobante...(r)";
         $res=false;
         responder($res,$msj,'');        
     }	
@@ -49,7 +49,7 @@ function sendPost($jsonDataEncoded)
     $msj='';
     //url contra la que atacamos
     // $ch = curl_init("http://3.16.166.249/api/documents/consult_id");
-    $ch = curl_init("http://apifacturalo_a.test:8080/api/documents/getLinks");    
+    $ch = curl_init("http://3.16.166.249/api/documents/getLinks");    
     //a true, obtendremos una respuesta de la url, en otro caso, 
     //true si es correcto, false si no lo es
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
