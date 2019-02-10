@@ -17,8 +17,8 @@ if($_POST){
         return $Return;
     }
     $Return = getCaptcha($_POST['g-recaptcha-response']);        
-    if($Return->success == true && $Return->score > 0.5){               
-    // if($Return->success == true){
+    // if($Return->success == true && $Return->score > 0.5){               
+    if($Return->success == true){
         
 
         $numComprobante = explode("-", $_POST['num_comprobante']);        
