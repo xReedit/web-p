@@ -17,7 +17,7 @@ if($_POST){
         return $Return;
     }
     $Return = getCaptcha($_POST['g-recaptcha-response']);        
-    if($Return->success == true && $Return->score > 0.3){  
+    if($Return->success == true && $Return->score > 0.5){  
     // if($Return->success == true){
         
 

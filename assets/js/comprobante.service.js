@@ -8,7 +8,7 @@ grecaptcha.ready(function () {
 
 $("#contact-form").submit(function(event) {	
 	if (!event.target.checkValidity()) return;	
-	xRetornaMoneda($("importe"));
+	// xRetornaMoneda($("importe"));
 	consultar();
 	event.preventDefault();
 });
@@ -83,10 +83,10 @@ function xDownloadFile(obj) {
 }
 
 
-function xRetornaMoneda(xObj) {
-	var xVal = parseFloat($(xObj).val());
-	if (isNaN(xVal)) { xVal = 0; }
-	xObj.value = parseFloat(xVal).toFixed(2);
-}
+// function xRetornaMoneda(xObj) {
+// 	var xVal = parseFloat($(xObj).val());
+// 	if (isNaN(xVal)) { xVal = 0; }
+// 	xObj.value = parseFloat(xVal).toFixed(2);
+// }
 
-function conMayusculas(field) { field.value = field.value.toUpperCase(); };
+// function conMayusculas(field) { field.value = field.value.toUpperCase(); };
