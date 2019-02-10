@@ -34,7 +34,7 @@ if($_POST){
         sendPost($_data);
         
     }else{
-        $msj="Eres un robot!";
+        $msj="No se encontro el comprobante...";
         $res=false;
         responder($res,$msj,'');        
     }	
