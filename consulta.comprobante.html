@@ -39,27 +39,38 @@
 					<div class="row text-center">
 						<div class="col-md-6 col-md-offset-3">
 							<div class="header-texts">
-								<h2>Consulta tu comprobante electronico.</h2>								
-								
+								<h3 style="color: white">Consulta tu comprobante electronico.</h3>									
 								<div class="col-md-12">
-									<div class="contact-info white-bg text-center">
+									<div class="contact-info xBorde-conentent white-bg text-center">
 										<p style="color: grey">Numero de comprobante, Ej: F001-00001</p>
 										<form id="contact-form">											
 											<div class="form-group row">
 												<div class="form-field gutter-10 form-m-bttm">
-													<input name="num_documento" id="num_documento" type="text" placeholder="RUC *" class="form-control txt-comprobante required" required>
+													<input name="ruc_establecimiento" id="ruc_establecimiento" type="text" placeholder="RUC del emisor *" class="form-control txt-comprobante required" required>
 												</div>												
+												<!-- <div class="form-field gutter-10 form-m-bttm">
+													<input name="num_documento" id="num_documento" type="text" placeholder="RUC del receptor*" class="form-control txt-comprobante required"
+													 required>
+												</div> -->
 											</div>
 											
 											<div class="form-group row">
-												<div class="form-field gutter-10">
-													<input name="num_comprobante" id="num_comprobante" type="text" placeholder="Numero del comprobante *" class="form-control txt-comprobante required" required>
+												<div class="form-field col-sm-8 gutter-10">
+													<input name="num_comprobante" id="num_comprobante" type="text" onChange="conMayusculas(this)" placeholder="Numero del comprobante *" class="form-control txt-comprobante required" required>
+												</div>
+												<div class="form-field col-sm-4 gutter-10">
+													<input name="importe" id="importe" type="text" onblur="xRetornaMoneda(this)" placeholder="Importe *" class="form-control txt-comprobante required" required>
 												</div>
 											</div>
-											<br>			
-											<span class="xInvisible text-danger" id="txt_res"></span>								
-											<input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" /><br>																			
-											<button onclick="consultar()" class="button solid-btn sb-h">Consultar</button>
+											<br>
+											<div id="_btn_send">
+												<span class="xInvisible text-danger" id="txt_res"></span>								
+												<input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" /><br>																			
+												<button type="submit" class="button solid-btn sb-h" id="btn_consultar">Consultar</button>
+											</div>			
+											
+											<div id="_btn_res"></div>
+											<!-- <button onclick="consultar()" class="button solid-btn sb-h" id="btn_consultar">Consultar</button> -->
 										</form>										
 									</div>
 								</div>

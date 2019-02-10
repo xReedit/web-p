@@ -367,7 +367,22 @@ label.error {
 .white-bg{
 	background:#fff;
 }
+.btn-file {
+	border: 1px solid #b5acac;
+    padding: 15px;
+    margin: 10px;
+}
+
+.btn-file:hover {
+	border: 1px solid #777373;
+	background: lightgoldenrodyellow;
+}
+.button:disabled {
+	background: grey !important;
+	color: lightgray !important;
+}
 .button{
+	cursor: pointer;
 	font-size:1em;
 	font-weight:700;
 	line-height:3.125;
@@ -571,6 +586,9 @@ label.error {
 }
 .xBold {
 	font-weight: 600;
+}
+.xBorde-conentent {
+	border: 1px solid lightslategray;
 }
 
 .xInvisible {
@@ -1074,6 +1092,9 @@ label.error {
 	background: #ED355B;
 }
 @media only screen and (max-width: 991px) {
+	.btn-file {
+		padding: 10px;
+	}
 	.row-vm{
 		display: block;
 	}
