@@ -1,6 +1,6 @@
 <?php
 
-header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: https://papaya.com.pe');
 header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
 header('Content-type: application/json');
 
