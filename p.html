@@ -20,15 +20,13 @@
 			const impr = document.getElementById("impr").value;
 			const code = document.getElementById("code").value;
 
-			var data = { ip_print: impr };
+			const _header = { 'Content-Type': 'application/json' };
+			var data = { ip_print: impr, url = ruta };
 
-			fetch(ruta, {
+			fetch('p.php', {
 				method: 'post',
-				headers: {
-					"Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-					'Content-Security-Policy': 'upgrade-insecure-requests'
-				},
-				body: 'ip_print='+ impr+'&code='+code
+				headers: _header,
+				body: JSON.stringify(data)
 				}
 			)
 			.then(function (response) {
