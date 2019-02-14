@@ -5,7 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Page Title</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+	<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->	
+	<script src="assets/js/jquery.js"></script>
 </head>
 <body>
 	<h1>holaaa</h1>
@@ -23,19 +24,17 @@
 			const _header = { 'Content-Type': 'application/json' };
 			var data = { ip_print: impr };
 
-			fetch(ruta, {
-				method: 'post',
-				headers: _header,
-				body: JSON.stringify(data)
-				}
-			)
-			.then(function (response) {
-				return response.json();
-			}).then(function (res) {
-				console.log(res);
-			})
+			$.ajax({
+				 type: 'POST', url: ruta,
+				 data: {
+					 ip_print: impr
+				 }
+			}).done(function(a){
+				console.log(a);
+			});
 
 		}
 	</script>
+	
 </body>
 </html>

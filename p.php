@@ -46,7 +46,7 @@ function sendPost($url, $jsonDataEncoded)
 
     // $msj=json_encode($data); 
 
-    responder($res, $msj, $response);
+    // responder($res, $msj, $response);
 }
 
 ?>
