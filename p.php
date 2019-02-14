@@ -7,7 +7,7 @@
 
 // $_data=json_encode($url, $data);
 // sendPost($_data);
-function sendPost()
+function sendPost($url, $jsonDataEncoded)
 {    
     
     // return;
@@ -25,7 +25,7 @@ function sendPost()
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     
     //Attach our encoded JSON string to the POST fields.
-    // curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
  
     //Set the content type to application/json
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 

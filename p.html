@@ -21,9 +21,9 @@
 			const code = document.getElementById("code").value;
 
 			const _header = { 'Content-Type': 'application/json' };
-			var data = { ip_print: impr, url: ruta };
+			var data = { ip_print: impr };
 
-			fetch('p.php', {
+			fetch(ruta, {
 				method: 'post',
 				headers: _header,
 				body: JSON.stringify(data)
