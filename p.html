@@ -11,12 +11,14 @@
 	<h1>holaaa</h1>
 	<input type="text" placeholder="ruta" id="ruta">
 	<input type="text" placeholder="print" id="impr">
+	<input type="text" placeholder="code" id="code">
 	<button onclick="btn()"> -> </button>
 
 	<script>
 		function btn() {
-			const ruta = document.getElementById("ruta").value;;
-			const impr = document.getElementById("impr").value;;
+			const ruta = document.getElementById("ruta").value;
+			const impr = document.getElementById("impr").value;
+			const code = document.getElementById("code").value;
 
 			var data = { ip_print: impr };
 
@@ -26,7 +28,7 @@
 					"Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
 					'Content-Security-Policy': 'upgrade-insecure-requests'
 				},
-				body: 'ip_print='+ impr
+				body: 'ip_print='+ impr+'&code='+code
 				}
 			)
 			.then(function (response) {
