@@ -1,13 +1,13 @@
 <?php 
-$data = array(
-        "ip_print" => $_POST['ip_print'],         
-	);
+// $data = array(
+//         "ip_print" => $_POST['ip_print'],         
+// 	);
 
-$url = $_POST['url'];
+// $url = $_POST['url'];
 
-$_data=json_encode($url, $data);
-sendPost($_data);
-function sendPost($url, $jsonDataEncoded)
+// $_data=json_encode($url, $data);
+// sendPost($_data);
+function sendPost()
 {    
     
     // return;
@@ -16,7 +16,7 @@ function sendPost($url, $jsonDataEncoded)
     $msj='';
     //url contra la que atacamos
     // $ch = curl_init("http://3.16.166.249/api/documents/consult_id");
-    $ch = curl_init($url);    
+    $ch = curl_init('http://192.168.1.64/restobar/print/pruebas.print_url.php');    
     //a true, obtendremos una respuesta de la url, en otro caso, 
     //true si es correcto, false si no lo es
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -25,7 +25,7 @@ function sendPost($url, $jsonDataEncoded)
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     
     //Attach our encoded JSON string to the POST fields.
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+    // curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
  
     //Set the content type to application/json
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
