@@ -5,8 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Page Title</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" media="screen" href="main.css">
-	<script src="main.js"></script>
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 </head>
 <body>
 	<h1>holaaa</h1>
@@ -24,7 +23,8 @@
 			fetch(ruta, {
 				method: 'post',
 				headers: {
-					"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+					"Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+					'Content-Security-Policy': 'upgrade-insecure-requests'
 				},
 				body: 'ip_print='+ impr
 				}
