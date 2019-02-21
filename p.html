@@ -15,6 +15,10 @@
 	<input type="text" placeholder="code" id="code">
 	<button onclick="btn()"> -> </button>
 
+	<div hidden="true">
+		<p>aaa</p>
+		<iframe name="theFrame"></iframe>
+	</div>
 	<script>
 		function btn() {
 			const ruta = document.getElementById("ruta").value;
@@ -25,7 +29,7 @@
 			window.localStorage.setItem('_impr', impr);
 			window.localStorage.setItem('_code', code);
 
-			window.open('http://www.papaya.com.pe/html_print.html')
+			window.open('http://www.papaya.com.pe/html_print.html', "theFrame")
 
 			// const _header = { 'Content-Type': 'application/json' };
 			// var data = { ip_print: impr };
