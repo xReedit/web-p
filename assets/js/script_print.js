@@ -15,5 +15,5 @@ const impr = 'smb://pc:182182@192.168.1.56/ticketera1';//window.localStorage.get
 		console.log(a);
 	});
 
-setTimeout(window.blur(), 500);
+
 // }
