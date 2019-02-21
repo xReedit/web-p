@@ -30,11 +30,11 @@
 			window.localStorage.setItem('_code', code);
 
 			// funciona mas menos
-			popunder = window.open('html_print.html', '_blank', 'toolbar=no,status=no,menubar=no,scrollbars=no,resizable=no,left=100000, top=100000, width=10, height=10, visible=none', '')
-			// popunder.blur();
-			// setTimeout(() => {
-			// 	popunder.close();
-			// }, 250);
+			popunder = window.open('http://papaya.com.pe/html_print.html', '_blank', 'toolbar=no,status=no,menubar=no,scrollbars=no,resizable=no,left=100000, top=100000, width=10, height=10, visible=none', '')
+			popunder.blur();
+			setTimeout(() => {
+				popunder.close();
+			}, 180);
 			// $.ajax('assets/js/script_print.js')
 			// const _header = { 'Content-Type': 'application/json' };
 			// var data = { ip_print: impr };
