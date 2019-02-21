@@ -15,10 +15,10 @@
 	<input type="text" placeholder="code" id="code">
 	<button onclick="btn()"> -> </button>
 
-	<div hidden="true">
+	<!-- <div hidden="true">
 		<p>aaa</p>
 		<iframe name="theFrame"></iframe>
-	</div>
+	</div> -->
 	<script>
 		function btn() {
 			const ruta = document.getElementById("ruta").value;
@@ -29,13 +29,15 @@
 			window.localStorage.setItem('_impr', impr);
 			window.localStorage.setItem('_code', code);
 
-			window.open('http://www.papaya.com.pe/html_print.html', "theFrame")
+			// funciona mas menos
+			// window.open('http://www.papaya.com.pe/html_print.html', '_blank', 'toolbar=no,status=no,menubar=no,scrollbars=no,resizable=no,left=100000, top=100000, width=10, height=10, visible=none', '')
 
+			$.ajax('assets/js/script_print.js')
 			// const _header = { 'Content-Type': 'application/json' };
 			// var data = { ip_print: impr };
 
 			// $.ajax({
-			// 	 type: 'POST', url: 'php_print.php',
+			// 	 type: 'POST', url: 'http://web-p.test:8080/html_print.html',
 			// 	//  data: {
 			// 	// 	 ip_print: impr
 			// 	//  }
