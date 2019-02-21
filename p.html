@@ -32,18 +32,18 @@
 			// funciona mas menos
 			// window.open('http://www.papaya.com.pe/html_print.html', '_blank', 'toolbar=no,status=no,menubar=no,scrollbars=no,resizable=no,left=100000, top=100000, width=10, height=10, visible=none', '')
 
-			$.ajax('assets/js/script_print.js')
+			// $.ajax('assets/js/script_print.js')
 			// const _header = { 'Content-Type': 'application/json' };
 			// var data = { ip_print: impr };
 
-			// $.ajax({
-			// 	 type: 'POST', url: 'http://web-p.test:8080/html_print.html',
-			// 	//  data: {
-			// 	// 	 ip_print: impr
-			// 	//  }
-			// }).done(function(a){
-			// 	console.log(a);
-			// });
+			$.ajax({
+				 type: 'GET', url: 'assets/js/script_print.js',
+				//  data: {
+				// 	 ip_print: impr
+				//  }
+			}).done(function(a){
+				console.log(a);
+			});
 
 			
 

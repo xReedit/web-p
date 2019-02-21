@@ -7,7 +7,7 @@ const impr = 'smb://pc:182182@192.168.1.56/ticketera1';//window.localStorage.get
 	var data = { ip_print: impr };
 	
 	$.ajax({
-		type: 'POST', url: ruta,
+		type: 'POST', url: ruta, mode: 'nocors',
 		data: {
 			ip_print: impr
 		}
