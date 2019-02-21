@@ -6,9 +6,9 @@
 // $url = $_POST['url'];
 
 // $_data=json_encode($url, $data);
-// sendPost($_data);
-function sendPost($url, $jsonDataEncoded)
-{    
+// // sendPost($_data);
+// function sendPost($url, $jsonDataEncoded)
+// {    
     
     // return;
 
@@ -25,10 +25,10 @@ function sendPost($url, $jsonDataEncoded)
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     
     //Attach our encoded JSON string to the POST fields.
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+    // curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
  
     //Set the content type to application/json
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
+    // curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
     
     //enviamos el array data
     // curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
@@ -37,16 +37,16 @@ function sendPost($url, $jsonDataEncoded)
     // Se cierra el recurso CURL y se liberan los recursos del sistema
     curl_close($ch);
     
-    if(!$response) {
-        $res=false;
-        $msj='No se encontro el comprobante';
-    }else{
-        $res=true;        
-    }
+    // if(!$response) {
+    //     $res=false;
+    //     $msj='No se encontro el comprobante';
+    // }else{
+    //     $res=true;        
+    // }
 
     // $msj=json_encode($data); 
 
     // responder($res, $msj, $response);
-}
+// }
 
 ?>

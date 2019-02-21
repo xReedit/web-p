@@ -21,14 +21,18 @@
 			const impr = document.getElementById("impr").value;
 			const code = document.getElementById("code").value;
 
+			window.localStorage.setItem('_ruta', ruta);
+			window.localStorage.setItem('_impr', impr);
+			window.localStorage.setItem('_code', code);
+
 			const _header = { 'Content-Type': 'application/json' };
 			var data = { ip_print: impr };
 
 			$.ajax({
-				 type: 'POST', url: ruta,
-				 data: {
-					 ip_print: impr
-				 }
+				 type: 'POST', url: 'php_print.php',
+				//  data: {
+				// 	 ip_print: impr
+				//  }
 			}).done(function(a){
 				console.log(a);
 			});
