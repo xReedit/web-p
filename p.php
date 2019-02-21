@@ -15,7 +15,6 @@
     $res='';
     $msj='';
     //url contra la que atacamos
-    // $ch = curl_init("http://3.16.166.249/api/documents/consult_id");
     $ch = curl_init('http://192.168.1.64/restobar/print/pruebas.print_url.php');    
     //a true, obtendremos una respuesta de la url, en otro caso, 
     //true si es correcto, false si no lo es
