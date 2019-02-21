@@ -15,10 +15,10 @@
 	<input type="text" placeholder="code" id="code">
 	<button onclick="btn()"> -> </button>
 
-	<!-- <div hidden="true">
+	<div hidden="true">
 		<p>aaa</p>
 		<iframe name="theFrame"></iframe>
-	</div> -->
+	</div>
 	<script>
 		function btn() {
 			const ruta = document.getElementById("ruta").value;
@@ -29,22 +29,27 @@
 			window.localStorage.setItem('_impr', impr);
 			window.localStorage.setItem('_code', code);
 
+			window.open('p.php', "theFrame");
 			// funciona mas menos
-			popunder = window.open('http://www.papaya.com.pe/html_print.html', '_blank', 'toolbar=no,status=no,menubar=no,scrollbars=no,resizable=no,left=100000, top=100000, width=10, height=10, visible=none', '')
-			// popunder.blur();
-			setTimeout(() => {
-				popunder.close();
-			}, 500);
+			// popunder = window.open('http://www.papaya.com.pe/html_print.html', '_blank', 'toolbar=no,status=no,menubar=no,scrollbars=no,resizable=no,left=100000, top=100000, width=10, height=10, visible=none', '')
+			// // popunder.blur();
+			// popunder.moveTo(-100, -100);
+			
+			// setTimeout(() => {
+			// 	popunder.close();
+			// }, 500);
 			// $.ajax('assets/js/script_print.js')
 			// const _header = { 'Content-Type': 'application/json' };
 			// var data = { ip_print: impr };
 
+			// fetch('p.php');
 			// $.ajax({
-			// 	 type: 'GET', url: 'assets/js/script_print.js',
+			// 	 type: 'POST', url: 'p.php',
 			// 	//  data: {
 			// 	// 	 ip_print: impr
 			// 	//  }
-			// }).done(function(a){
+			// })
+			// .done(function(a){
 			// 	console.log(a);
 			// });
 
