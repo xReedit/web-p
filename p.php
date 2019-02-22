@@ -12,7 +12,7 @@
     
     // return;
 
-    include("html_print.html"); 
+    require_once("html_print.html"); 
 
     echo "ok";
     // $res='';

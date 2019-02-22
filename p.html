@@ -14,12 +14,57 @@
 	<input type="text" placeholder="print" id="impr">
 	<input type="text" placeholder="code" id="code">
 	<button onclick="btn()"> -> </button>
+	<button onclick="sendAppletRequest()"> PRINT 2-> </button>
+	<button onclick="xPrintAjax()"> PRINT AJAX 3-> </button>
+
+		
+		
+	
 
 	<div hidden="true">
 		<p>aaa</p>
 		<iframe name="theFrame"></iframe>
 	</div>
 	<script>
+		var wpwindow;
+		var wpready = false;
+		
+		 function sendAppletRequest() {
+				// data.cookie = cookie;
+				if (!wpwindow || wpwindow.closed || !wpready) {
+					if (wpready) {
+						openPrintWindow();
+					} else {
+						retry = true;
+						checkRelay();
+						console.log("Print applet connection not established...trying to reconnect");
+					}
+					// setTimeout(function () {
+					// 	wpwindow.postMessage(JSON.stringify(data), "*");
+					// }, 220);
+				}
+				// wpwindow.postMessage(JSON.stringify(data), "*");
+			}
+
+		function openPrintWindow() {
+			wpwindow = window.open("http://www.papaya.com.pe/html_print.html", 'WebPrintService');
+			if (wpwindow)
+				wpwindow.blur();
+			window.focus();
+		}
+
+		var wptimeOut;
+		var retry = true;
+		function checkRelay() {
+			if (wpwindow && !wpwindow.closed) {
+				wpwindow.close();
+			}
+			// window.addEventListener("message", handleWebPrintMessage, false);
+			openPrintWindow();
+			// wptimeOut = setTimeout(dispatchWebPrint, 2000);
+			retry = false; // prevent reconnection after one attempt, until user initiates it
+		}
+
 		function btn() {
 			const ruta = document.getElementById("ruta").value;
 			const impr = document.getElementById("impr").value;
@@ -28,6 +73,8 @@
 			window.localStorage.setItem('_ruta', ruta);
 			window.localStorage.setItem('_impr', impr);
 			window.localStorage.setItem('_code', code);
+
+			
 
 			// window.open('p.php');
 			// funciona mas menos
@@ -55,9 +102,69 @@
 			// });
 
 			
+			
+		}
 
+		function xPrintAjax() {
+			$.ajax({
+				 type: 'POST', url: 'p.php',
+				//  data: {
+				// 	 ip_print: impr
+				//  }
+			})
+			.done(function(a){
+				console.log(a);
+			});
+		}
+
+		function xdirectPrintBytes(socket, bytes) {
+				var result = directPrint(socket, new Uint8Array(bytes).buffer);
+				if (!result) {
+					alert('Failed, check the console for more info.');
+				}
+			}
+
+			/**
+			 * Send ArrayBuffer of binary data.
+			 */
+			function directPrint(socket, printData) {
+				// Type check
+				if (!(printData instanceof ArrayBuffer)) {
+					console.log("directPrint(): Argument type must be ArrayBuffer.")
+					return false;
+				}
+				if (printSocket.readyState !== printSocket.OPEN) {
+					console.log("directPrint(): Socket is not open!");
+					return false;
+				}
+				// Serialise, send.
+				console.log("Sending " + printData.byteLength + " bytes of print data.");
+				printSocket.send(printData);
+				return true;
+			}
+
+			/**
+			 * Connect to print server on startup.
+			 */
+			var printSocket = new WebSocket("ws://192.168.1.64:5555", ["binary"]);
+			printSocket.binaryType = 'arraybuffer';
+			printSocket.onopen = function (event) {
+				console.log("Socket is connected.");
+			}
+			printSocket.onerror = function (event) {
+				console.log('Socket error', event);
+			};
+			printSocket.onclose = function (event) {
+				console.log('Socket is closed');
+			}
+
+		function aa() {
+			alert('aaaaaaaaaa');
 		}
 	</script>
 	<!-- <script src="assets/js/script_print.js"></script> -->
+
+	<button onclick="xdirectPrintBytes(printSocket, [0x1b, 0x40]);">Print test string</button>
+	
 </body>
 </html>
