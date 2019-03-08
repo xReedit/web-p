@@ -6,7 +6,7 @@ $mail = new PHPMailer();
 $emailTO = $emailBCC =  $emailCC = array(); $formEmail = '';
 
 ### Enter Your Sitename 
-$sitename = 'papaya.com.pe';
+$sitename = 'Contacto papaya.com.pe';
 
 ### Enter your email addresses: @required
 $emailTO[] = array( 'email' => 'papaya.restobar@gmail.com', 'name' => 'Papaya Restobar' ); 
