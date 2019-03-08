@@ -24,7 +24,7 @@ $subject = "Contactar" . ' - ' . $sitename;
 //$formEmail = 'noreply@yoursite.com';
 
 ### Success Messages
-$msg_success = "We have <strong>successfully</strong> received your message. We'll get back to you soon.";
+$msg_success = "Hemos recibido con éxito su mensaje. Nos pondremos en contacto con usted en breve.";
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (isset($_POST["contact-email"]) && $_POST["contact-email"] != '' && isset($_POST["contact-name"]) && $_POST["contact-name"] != '') {
