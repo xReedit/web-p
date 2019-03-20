@@ -591,6 +591,8 @@ label.error {
 	border: 1px solid lightslategray;
 }
 
+.colorPlomo { color: #424242 !important;}
+.f12{font-size: 12px;}
 .xInvisible {
 	display: none !important;
 }
@@ -2667,7 +2669,7 @@ label.error {
 }
 .faqs:before{
 	position:absolute;
-	content:"";
+	/* content:""; */
 	height:calc(100% + 35px);
 	width:calc(100% + 25px);
 	top:-20px;
@@ -2678,6 +2680,7 @@ label.error {
 	-moz-transition:all .5s ease;
 	transition:all .5s ease;
 }
+
 .faqs:hover:before{
 	opacity:1;
 }
