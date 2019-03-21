@@ -1275,6 +1275,11 @@ label.error {
 		max-width: 125px;
 	}
 }
+
+.xVisibleMayor500 {visibility:visible; display: inline-block;}
+@media only screen and (max-width: 500px) {
+	.xVisibleMayor500 {visibility: hidden; display: none;}
+}
 @media only screen and (max-width: 375px) {
 	.button{
 		min-width:130px;
