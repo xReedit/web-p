@@ -75,7 +75,7 @@ function sendPost($jsonDataEncoded)
         // $res=false;
         // $msj='No se encontro el comprobante';
     }else{
-        $dt =$response;        
+        $dt = json_decode($response, true);        
         if ( $dt['success'] ) {
             $res=true;    
             responder($res, $msj, $dt['success']);    
