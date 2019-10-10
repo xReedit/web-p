@@ -78,7 +78,7 @@ function sendPost($jsonDataEncoded)
         $dt = json_decode($response, true);        
         if ( $dt['success'] ) {
             $res=true;    
-            responder($res, $msj, $dt['success']);    
+            responder($res, $msj, $response);    
         } else {
             sendPostApi2($jsonDataEncoded);
         }
