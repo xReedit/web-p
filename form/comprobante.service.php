@@ -75,10 +75,10 @@ function sendPost($jsonDataEncoded)
         // $res=false;
         // $msj='No se encontro el comprobante';
     }else{
-        $dt =json_encode($response);        
+        $dt =json_encode(json_decode($response));        
         if ( !$dt['success'] ) {
             $res=true;    
-            responder($res, $msj, $dt);    
+            responder($res, $msj, $dt['success']);    
         } else {
             sendPostApi2($jsonDataEncoded);
         }
@@ -95,7 +95,7 @@ function sendPostApi2($jsonDataEncoded)
     // return;
 
     $res='';
-    $msj='';
+    $msj='api2';
     //url contra la que atacamos
     // $ch = curl_init("http://3.16.166.249/api/documents/consult_id");
     $chApi = curl_init("http://18.217.212.172/api/documents/getLinks");    
