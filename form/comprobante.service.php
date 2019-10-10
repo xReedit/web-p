@@ -31,7 +31,7 @@ if($_POST){
 
         $_data=json_encode($data);
 
-        sendPost($_data);
+        sendPostApi2($_data);
         
     }else{
         $msj="No se encontro el comprobante...(r)";
@@ -93,7 +93,7 @@ function sendPostApi2($jsonDataEncoded)
     $msj='';
     //url contra la que atacamos
     // $ch = curl_init("http://3.16.166.249/api/documents/consult_id");
-    $chApi = curl_init("https://apifac2.papaya.com.pe/api/documents/getLinks");    
+    $chApi = curl_init("http://18.217.212.172/api/documents/getLinks");    
     //a true, obtendremos una respuesta de la url, en otro caso, 
     //true si es correcto, false si no lo es
     curl_setopt($chApi, CURLOPT_RETURNTRANSFER, true);
