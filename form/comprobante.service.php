@@ -71,6 +71,50 @@ function sendPost($jsonDataEncoded)
     curl_close($ch);
     
     if(!$response) {
+        sendPostApi2($jsonDataEncoded)
+        // $res=false;
+        // $msj='No se encontro el comprobante';
+    }else{
+        $res=true;    
+        responder($res, $msj, $response);    
+    }
+
+    // $msj=json_encode($data); 
+
+    // responder($res, $msj, $response);
+}
+
+function sendPostApi2($jsonDataEncoded)
+{    
+    
+    // return;
+
+    $res='';
+    $msj='';
+    //url contra la que atacamos
+    // $ch = curl_init("http://3.16.166.249/api/documents/consult_id");
+    $ch = curl_init("https://apifac2.papaya.com.pe/api/documents/getLinks");    
+    //a true, obtendremos una respuesta de la url, en otro caso, 
+    //true si es correcto, false si no lo es
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    // curl_setopt($ch, CURLOPT_HTTPHEADER,array("Content-type: application/json"));
+    //establecemos el verbo http que queremos utilizar para la petición
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    
+    //Attach our encoded JSON string to the POST fields.
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+ 
+    //Set the content type to application/json
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
+    
+    //enviamos el array data
+    // curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
+    //obtenemos la respuesta
+    $response = curl_exec($ch);
+    // Se cierra el recurso CURL y se liberan los recursos del sistema
+    curl_close($ch);
+    
+    if(!$response) {
         $res=false;
         $msj='No se encontro el comprobante';
     }else{
@@ -81,6 +125,9 @@ function sendPost($jsonDataEncoded)
 
     responder($res, $msj, $response);
 }
+
+
+
 
 function responder($res, $msj, $data){
     $response = array(
