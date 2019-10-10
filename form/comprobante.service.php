@@ -31,7 +31,7 @@ if($_POST){
 
         $_data=json_encode($data);
 
-        sendPostApi2($_data);
+        sendPost($_data);
         
     }else{
         $msj="No se encontro el comprobante...(r)";
@@ -75,8 +75,12 @@ function sendPost($jsonDataEncoded)
         // $res=false;
         // $msj='No se encontro el comprobante';
     }else{
-        $res=true;    
-        responder($res, $msj, $response);    
+        if ( $response.success ) {
+            $res=true;    
+            responder($res, $msj, $response);    
+        } else {
+            sendPostApi2($jsonDataEncoded);
+        }
     }
 
     // $msj=json_encode($data); 
