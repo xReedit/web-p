@@ -46,7 +46,7 @@ function sendPost($jsonDataEncoded)
     // return;
 
     $res='';
-    $msj='';
+    $msj='api1';
     //url contra la que atacamos
     // $ch = curl_init("http://3.16.166.249/api/documents/consult_id");
     $ch = curl_init("http://3.16.166.249/api/documents/getLinks");    
@@ -76,7 +76,7 @@ function sendPost($jsonDataEncoded)
         // $msj='No se encontro el comprobante';
     }else{
         $dt =json_encode($response);
-        if ( $dt['success'] == true ) {
+        if ( $dt['success'] === true ) {
             $res=true;    
             responder($res, $msj, $response);    
         } else {
