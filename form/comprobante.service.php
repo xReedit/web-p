@@ -49,7 +49,7 @@ function sendPost($jsonDataEncoded)
     $msj='api1';
     //url contra la que atacamos
     // $ch = curl_init("http://3.16.166.249/api/documents/consult_id");
-    $ch = curl_init("http://3.16.166.249/api/documents/getLinks");    
+    $ch = curl_init("https://apifac.papaya.com.pe/api/documents/getLinks");    
     //a true, obtendremos una respuesta de la url, en otro caso, 
     //true si es correcto, false si no lo es
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -98,7 +98,7 @@ function sendPostApi2($jsonDataEncoded)
     $msj='api2';
     //url contra la que atacamos
     // $ch = curl_init("http://3.16.166.249/api/documents/consult_id");
-    $chApi = curl_init("http://18.217.212.172/api/documents/getLinks");    
+    $chApi = curl_init("https://apifac.papaya.com.pe/api/documents/getLinks");    
     //a true, obtendremos una respuesta de la url, en otro caso, 
     //true si es correcto, false si no lo es
     curl_setopt($chApi, CURLOPT_RETURNTRANSFER, true);
