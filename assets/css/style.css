@@ -2242,8 +2242,9 @@ label.error {
 		height:120vh;
 	}
 	.svg-curve{
-		height: 145px;
-		bottom: calc(100vh - 880px);
+		display: none;
+		/* height: 145px;
+		bottom: calc(100vh - 880px); */
 	}
 	.header-laptop-mockup,
 	.half-header .header-laptop-mockup{
