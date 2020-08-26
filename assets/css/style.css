@@ -2056,7 +2056,8 @@ label.error {
 		height:80vh;
 	}
 	.svg-curve {
-		bottom: calc(100vh - 770px);
+		/* bottom: calc(100vh - 770px); */
+		display: none;
 	}
 	.mockup-screen{
 		max-width:225px;
@@ -2112,7 +2113,7 @@ label.error {
 		min-height: 300px;
 	}
 	.svg-curve{
-		bottom: calc(100vh - 850px);
+		bottom: calc(100vh - 950px);
 	}
 	.mockup-screen{
 		max-width:205px;
@@ -2239,7 +2240,7 @@ label.error {
 } */
 @media only screen and (max-width: 479px) {
 	.header-section{
-		height:120vh;
+		height:155vh;
 	}
 	.svg-curve{
 		display: none;
