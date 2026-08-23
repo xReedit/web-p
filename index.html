@@ -257,24 +257,44 @@
 
 		</div><!-- .header-section -->
 
+		<!-- contamos con el repaldo  -->		
+		<div class="container tab-fix">
+				<div class="text-center" style="padding: 60px 0 50px; border-bottom: 1px solid #c5c5c5;">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<h2 class="heading">Contamos con el <span>respaldo</span> de:</h2>
+							<div class="content-img-respaldo">							
+								<img class="img-repaldo" src="./images/PRODUCE.png" alt="ministerio-produccion" title="ministerio-produccion">
+								<img class="img-repaldo" src="./images/sup.png" alt="startup-peru" title="startup-peru">
+								<img class="img-repaldo" src="./images/PI.png" alt="proinnovate" title="proinnovate">
+							</div>
+						</div>
+						<br>
+					</div>
+				</div><!-- .section-head -->
+		</div>
+		<!-- resplado -->
+
 		<!-- chatbot destacado -->
 		<style>
-			#chatbot-ia{position:relative;overflow:hidden;background:#0b1f1a;background-image:radial-gradient(900px 420px at 85% 20%,rgba(37,211,102,.35),transparent 60%),radial-gradient(700px 380px at 10% 90%,rgba(249,33,141,.25),transparent 60%);color:#fff;padding:90px 0}
-			#chatbot-ia .cb-kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#25d366;margin-bottom:18px}
+			#chatbot-ia{position:relative;overflow:hidden;background:#1c1060;background-image:linear-gradient(293deg,rgba(237,53,91,.92) 0%,rgba(31,101,219,.95) 100%);color:#fff;padding:90px 0}
+			#chatbot-ia:before{content:"";position:absolute;inset:0;background:radial-gradient(700px 360px at 88% 15%,rgba(255,255,255,.18),transparent 60%),radial-gradient(600px 320px at 8% 95%,rgba(249,33,141,.35),transparent 60%);pointer-events:none}
+			#chatbot-ia .container{position:relative}
+			#chatbot-ia .cb-kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.14);padding:6px 14px;border-radius:30px;margin-bottom:22px}
 			#chatbot-ia .cb-kicker i{width:8px;height:8px;border-radius:50%;background:#25d366;box-shadow:0 0 0 0 rgba(37,211,102,.7);animation:cb-pulse 1.8s infinite}
 			@keyframes cb-pulse{70%{box-shadow:0 0 0 10px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
 			#chatbot-ia h2{color:#fff;font-size:44px;line-height:1.1;font-weight:800;margin:0 0 18px}
-			#chatbot-ia h2 span{color:#25d366}
-			#chatbot-ia .cb-lead{font-size:18px;color:rgba(255,255,255,.78);max-width:520px;margin:0 0 28px}
-			#chatbot-ia .cb-stats{display:flex;gap:28px;flex-wrap:wrap;margin:0 0 32px;padding:0;list-style:none}
-			#chatbot-ia .cb-stats strong{display:block;font-size:26px;font-weight:800;color:#fff;line-height:1}
-			#chatbot-ia .cb-stats span{font-size:13px;color:rgba(255,255,255,.65)}
-			#chatbot-ia .cb-cta{display:inline-block;background:#f9218d;color:#fff;font-weight:700;padding:16px 34px;border-radius:40px;box-shadow:0 12px 30px rgba(249,33,141,.35);transition:transform .2s,box-shadow .2s}
-			#chatbot-ia .cb-cta:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(249,33,141,.45);color:#fff}
-			#chatbot-ia .cb-sub{display:block;margin-top:14px;font-size:13px;color:rgba(255,255,255,.55)}
+			#chatbot-ia h2 span{color:#ffe14d}
+			#chatbot-ia .cb-lead{font-size:18px;color:rgba(255,255,255,.88);max-width:540px;margin:0 0 26px}
+			#chatbot-ia .cb-flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 30px;padding:0;list-style:none;font-size:13px;font-weight:700}
+			#chatbot-ia .cb-flow li{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:8px 14px;border-radius:30px}
+			#chatbot-ia .cb-flow li.arrow{background:none;border:0;padding:0;opacity:.7}
+			#chatbot-ia .cb-cta{display:inline-block;background:#fff;color:#1f65db;font-weight:800;padding:16px 34px;border-radius:40px;box-shadow:0 12px 30px rgba(0,0,0,.25);transition:transform .2s,box-shadow .2s}
+			#chatbot-ia .cb-cta:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(0,0,0,.3);color:#1f65db}
+			#chatbot-ia .cb-sub{display:block;margin-top:14px;font-size:13px;color:rgba(255,255,255,.7)}
 			#chatbot-ia .cb-visual{position:relative;min-height:420px}
-			#chatbot-ia .cb-visual img{position:relative;z-index:2;max-width:100%;filter:drop-shadow(0 30px 40px rgba(0,0,0,.45))}
-			#chatbot-ia .cb-bubble{position:absolute;z-index:3;background:#fff;color:#111;border-radius:16px;padding:12px 16px;font-size:14px;line-height:1.35;max-width:240px;box-shadow:0 14px 30px rgba(0,0,0,.35);animation:cb-float 5s ease-in-out infinite}
+			#chatbot-ia .cb-visual img{position:relative;z-index:2;max-width:100%;filter:drop-shadow(0 30px 40px rgba(0,0,0,.35))}
+			#chatbot-ia .cb-bubble{position:absolute;z-index:3;background:#fff;color:#111;border-radius:16px;padding:12px 16px;font-size:14px;line-height:1.35;max-width:240px;box-shadow:0 14px 30px rgba(0,0,0,.3);animation:cb-float 5s ease-in-out infinite}
 			#chatbot-ia .cb-bubble.me{background:#dcf8c6;border-bottom-right-radius:4px;right:0;top:8%}
 			#chatbot-ia .cb-bubble.bot{border-bottom-left-radius:4px;left:0;top:38%;animation-delay:-2.5s}
 			#chatbot-ia .cb-bubble.bot2{border-bottom-left-radius:4px;left:6%;bottom:4%;animation-delay:-1.2s}
@@ -286,23 +306,23 @@
 			<div class="container">
 				<div class="row tab-center mobile-center">
 					<div class="col-md-6">
-						<p class="cb-kicker"><i></i> Nueva herramienta · WhatsApp + IA</p>
-						<h2>Tu restaurante responde<br>solo, <span>las 24 horas</span></h2>
-						<p class="cb-lead">Un asistente con inteligencia artificial atiende WhatsApp por ti: envía la carta, toma pedidos, responde dudas y reenvía comprobantes. Todo cae directo en Papaya Restobar.</p>
-						<ul class="cb-stats">
-							<li><strong>24/7</strong><span>sin contratar personal</span></li>
-							<li><strong>&lt; 5 s</strong><span>tiempo de respuesta</span></li>
-							<li><strong>0</strong><span>pedidos perdidos por no contestar</span></li>
+						<p class="cb-kicker"><i></i> Nuevo · ChatBot con IA para WhatsApp</p>
+						<h2>¿Y si tu WhatsApp <span>tomara los pedidos</span> y los mandara solo a cocina?</h2>
+						<p class="cb-lead">Un asistente con inteligencia artificial atiende tu WhatsApp durante el horario de tu restaurante: envía la carta, responde dudas y toma pedidos. Está integrado con Papaya Restobar, así que cada pedido entra directo a caja y a las áreas de producción, sin que nadie lo copie a mano.</p>
+						<ul class="cb-flow">
+							<li>Cliente escribe</li><li class="arrow">&rarr;</li>
+							<li>El bot toma el pedido</li><li class="arrow">&rarr;</li>
+							<li>Llega a caja y cocina</li>
 						</ul>
-						<a href="https://demo.papaya.com.pe/chatbot" class="cb-cta wow fadeInUp" data-wow-duration=".5s">Ver el ChatBot en acción</a>
-						<span class="cb-sub">Se integra con tu carta y tu caja actual. Sin instalaciones.</span>
+						<a href="https://demo.papaya.com.pe/chatbot" class="cb-cta wow fadeInUp" data-wow-duration=".5s">Mira cómo lo hace</a>
+						<span class="cb-sub">Funciona con la carta que ya tienes en el sistema. Sin instalaciones.</span>
 					</div><!-- .col -->
 					<div class="col-md-6">
 						<div class="cb-visual wow fadeInRight" data-wow-duration=".6s">
-							<div class="cb-bubble me">Hola, ¿tienen delivery? Quiero ver la carta<small>21:47 ✓✓</small></div>
+							<div class="cb-bubble me">Hola, ¿tienen delivery? Quiero ver la carta<small>20:47 ✓✓</small></div>
 							<img src="images/bot-wsp.png" alt="ChatBot con IA para WhatsApp de Papaya Restobar" />
-							<div class="cb-bubble bot">¡Hola! Sí, hacemos delivery hasta las 11 pm. Aquí va nuestra carta. ¿Qué te provoca hoy?<small>21:47</small></div>
-							<div class="cb-bubble bot2">Listo. Tu pedido #1042 ya está en cocina. Llega en 35 min.<small>21:52</small></div>
+							<div class="cb-bubble bot">¡Hola! Sí, hacemos delivery hasta las 11 pm. Aquí va nuestra carta. ¿Qué te provoca hoy?<small>20:47</small></div>
+							<div class="cb-bubble bot2">Listo. Tu pedido #1042 ya está en cocina. Llega en 35 min.<small>20:52</small></div>
 						</div>
 					</div><!-- .col -->
 				</div>
@@ -321,23 +341,6 @@
 		</div>
 
 
-		<!-- contamos con el repaldo  -->		
-		<div class="container tab-fix">
-				<div class="text-center" style="padding: 60px 0 50px; border-bottom: 1px solid #c5c5c5;">
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2">
-							<h2 class="heading">Contamos con el <span>respaldo</span> de:</h2>
-							<div class="content-img-respaldo">							
-								<img class="img-repaldo" src="./images/PRODUCE.png" alt="ministerio-produccion" title="ministerio-produccion">
-								<img class="img-repaldo" src="./images/sup.png" alt="startup-peru" title="startup-peru">
-								<img class="img-repaldo" src="./images/PI.png" alt="proinnovate" title="proinnovate">
-							</div>
-						</div>
-						<br>
-					</div>
-				</div><!-- .section-head -->
-		</div>
-		<!-- resplado -->
 		
 		
 		<!-- Start .about-section  -->
