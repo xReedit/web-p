@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Libro de Reclamaciones Virtual de Papaya restobar.">
+		<link rel="icon" href="/images/favicons/favicon.ico">
+		<link rel="canonical" href="https://papaya.com.pe/libro-reclamaciones.html">
+		<title>Libro de Reclamaciones | Papaya.com.pe</title>
+		<style>
+			@font-face { font-family: 'Quicksand'; src: url('assets/fonts/Quicksand-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+			@font-face { font-family: 'Quicksand'; src: url('assets/fonts/Quicksand-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+			:root { --morado: #9E38CF; --texto: #2b2b33; --suave: #6b6b78; --borde: #e3e1ea; --fondo: #f7f6fa; --error: #c62828; }
+			* { box-sizing: border-box; }
+			body { margin: 0; font-family: 'Quicksand', system-ui, sans-serif; color: var(--texto); background: var(--fondo); line-height: 1.5; }
+			header { background: #fff; border-bottom: 1px solid var(--borde); }
+			header .barra { max-width: 760px; margin: 0 auto; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; }
+			header img { height: 34px; }
+			header a { color: var(--suave); text-decoration: none; font-size: 15px; }
+			main { max-width: 760px; margin: 0 auto; padding: 28px 16px 48px; }
+			h1 { font-size: 28px; margin: 0 0 4px; }
+			h2 { font-size: 18px; margin: 0 0 14px; }
+			.caja { background: #fff; border: 1px solid var(--borde); border-radius: 14px; padding: 22px; margin-bottom: 18px; }
+			.campos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+			.ancho { grid-column: 1 / -1; }
+			label, legend { display: block; font-weight: 700; font-size: 15px; }
+			input[type=text], input[type=email], input[type=tel], input[type=number], select, textarea { display: block; width: 100%; margin-top: 5px; padding: 11px 12px; font: inherit; font-weight: 400; border: 1px solid #cfccd9; border-radius: 9px; background: #fff; }
+			textarea { resize: vertical; }
+			input:focus, select:focus, textarea:focus { outline: 2px solid var(--morado); outline-offset: 0; border-color: var(--morado); }
+			fieldset { border: 0; padding: 0; margin: 0; }
+			.opciones { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+			.opcion { flex: 1 1 220px; border: 2px solid var(--borde); border-radius: 10px; padding: 10px 12px; font-weight: 400; cursor: pointer; }
+			.opcion:has(input:checked) { border-color: var(--morado); background: #faf5fd; }
+			.opcion b { display: block; }
+			.opcion small { color: var(--suave); }
+			.check { display: flex; gap: 8px; align-items: flex-start; font-weight: 400; margin-top: 14px; }
+			.check input { margin-top: 4px; }
+			.nota { color: var(--suave); font-size: 14px; }
+			a { color: var(--morado); }
+			button { display: block; width: 100%; margin-top: 18px; padding: 15px; font: inherit; font-size: 18px; font-weight: 700; color: #fff; background: var(--morado); border: 0; border-radius: 10px; cursor: pointer; }
+			button:disabled { background: #b9a6c4; cursor: wait; }
+			button.secundario { background: #fff; color: var(--morado); border: 2px solid var(--morado); font-size: 16px; padding: 11px; }
+			.mensaje { padding: 12px 14px; border-radius: 9px; margin: 14px 0 0; background: #fdecec; color: var(--error); }
+			.constancia table { width: 100%; border-collapse: collapse; }
+			.constancia td { border: 1px solid var(--borde); padding: 8px 10px; vertical-align: top; white-space: pre-wrap; }
+			.constancia td:first-child { width: 34%; color: var(--suave); background: #faf9fc; }
+			.numero { font-size: 22px; }
+			footer { border-top: 1px solid var(--borde); background: #fff; }
+			footer ul { max-width: 760px; margin: 0 auto; padding: 18px 16px; list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: center; font-size: 14px; color: var(--suave); }
+			[hidden] { display: none !important; }
+			@media (max-width: 560px) { .campos { grid-template-columns: 1fr; } }
+			@media print { header, footer, .no-imprimir { display: none !important; } body { background: #fff; } .caja { border: 0; padding: 0; } }
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="barra">
+				<a href="./"><img src="images/logo.png" alt="Papaya restobar"></a>
+				<a href="./">← Inicio</a>
+			</div>
+		</header>
+
+		<main>
+			<h1>Libro de Reclamaciones</h1>
+			<p class="nota">Conforme al Código de Protección y Defensa del Consumidor, contamos con un Libro de Reclamaciones Virtual a tu disposición.</p>
+
+
+			<form id="hoja" novalidate>
+				<section class="caja">
+					<h2>1. Identificación del consumidor reclamante</h2>
+					<div class="campos">
+						<label class="ancho">Nombre completo <input type="text" name="nombre" maxlength="150" autocomplete="name" required></label>
+						<label>Tipo de documento
+							<select name="tipoDoc" required>
+								<option value="DNI">DNI</option>
+								<option value="CE">Carné de extranjería</option>
+								<option value="PASAPORTE">Pasaporte</option>
+								<option value="RUC">RUC</option>
+							</select>
+						</label>
+						<label>Número de documento <input type="text" name="numDoc" maxlength="15" required pattern="[A-Za-z0-9]{6,15}"></label>
+						<label class="ancho">Domicilio <input type="text" name="domicilio" maxlength="200" autocomplete="street-address" required></label>
+						<label>Teléfono <input type="tel" name="telefono" maxlength="20" autocomplete="tel" required></label>
+						<label>Correo electrónico <input type="email" name="email" maxlength="120" autocomplete="email" required></label>
+						<label class="ancho">Si eres menor de edad: nombre de tu padre, madre o apoderado <input type="text" name="apoderado" maxlength="150"></label>
+					</div>
+				</section>
+
+				<section class="caja">
+					<h2>2. Identificación del bien contratado</h2>
+					<fieldset>
+						<legend>Tipo</legend>
+						<div class="opciones">
+							<label class="opcion"><input type="radio" name="bien" value="servicio" checked> <b>Servicio</b></label>
+							<label class="opcion"><input type="radio" name="bien" value="producto"> <b>Producto</b></label>
+						</div>
+					</fieldset>
+					<div class="campos" style="margin-top:14px">
+						<label>Descripción (plan, equipo, etc.) <input type="text" name="descripcion" maxlength="255" required></label>
+						<label>Monto reclamado en S/ (opcional) <input type="number" name="monto" min="0" step="0.01" inputmode="decimal"></label>
+					</div>
+				</section>
+
+				<section class="caja">
+					<h2>3. Detalle de la reclamación y pedido del consumidor</h2>
+					<fieldset>
+						<legend>Tipo</legend>
+						<div class="opciones">
+							<label class="opcion"><input type="radio" name="tipo" value="reclamo" checked> <b>Reclamo</b> <small>Disconformidad relacionada con los productos o servicios contratados.</small></label>
+							<label class="opcion"><input type="radio" name="tipo" value="queja"> <b>Queja</b> <small>Disconformidad no relacionada con los productos o servicios, o malestar por la atención al público.</small></label>
+						</div>
+					</fieldset>
+					<label style="margin-top:14px">Detalle <textarea name="detalle" rows="5" maxlength="3000" required minlength="10"></textarea></label>
+					<label style="margin-top:14px">Pedido <textarea name="pedido" rows="3" maxlength="2000" required minlength="5"></textarea></label>
+					<label class="check"><input type="checkbox" name="acepta" required> <span>Declaro que los datos consignados son verdaderos. Acepto que la respuesta se me envíe al correo electrónico indicado.</span></label>
+					<p class="nota">La formulación del reclamo no impide acudir a otras vías de solución de controversias ni es requisito previo para interponer una denuncia ante el INDECOPI. El proveedor debe dar respuesta en un plazo no mayor a quince (15) días hábiles.</p>
+					<button id="enviar" type="submit">Enviar hoja de reclamación</button>
+					<p id="mensaje" class="mensaje" role="alert" hidden></p>
+				</section>
+			</form>
+
+			<section id="constancia" class="caja constancia" hidden aria-live="polite">
+				<h2>Hoja de reclamación <span class="numero" id="c-numero"></span></h2>
+				<p id="c-aviso"></p>
+				<table><tbody id="c-filas"></tbody></table>
+				<p class="nota">La formulación del reclamo no impide acudir a otras vías de solución de controversias ni es requisito previo para interponer una denuncia ante el INDECOPI.</p>
+				<button class="secundario no-imprimir" type="button" onclick="window.print()">Imprimir o guardar en PDF</button>
+			</section>
+		</main>
+
+		<footer>
+			<ul>
+				<li>© <span id="anio">2026</span> papaya.com.pe</li>
+				<li><a href="./terminos-condiciones.html">Términos y Condiciones</a></li>
+				<li><a href="./privacidad.html">Política de privacidad</a></li>
+				<li><a href="./politica-reembolso.html">Cancelación y reembolsos</a></li>
+				<li><a href="./libro-reclamaciones.html">Libro de Reclamaciones</a></li>
+			</ul>
+		</footer>
+
+		<script>
+			// form/reclamo.php numera y guarda la hoja, y manda la copia al correo del consumidor (con copia a soporte@).
+			(function () {
+				var API = 'form/reclamo.php';
+				var $ = function (id) { return document.getElementById(id); };
+				var form = $('hoja');
+				var hoy = new Date();
+				$('anio').textContent = hoy.getFullYear();
+
+				function avisar(t) { $('mensaje').textContent = t || ''; $('mensaje').hidden = !t; }
+				function fila(k, v) {
+					var tr = document.createElement('tr');
+					var a = document.createElement('td'); a.textContent = k;
+					var b = document.createElement('td'); b.textContent = v;
+					tr.append(a, b);
+					$('c-filas').appendChild(tr);
+				}
+				function mostrar(r, copia) {
+					$('c-numero').textContent = 'N.° ' + r.numero;
+					$('c-aviso').textContent = 'Recibimos tu ' + r.tipo + '. ' + (copia ? 'Te enviamos una copia a ' + r.email : 'Imprime o guarda esta constancia') + ' y te responderemos en máximo 15 días hábiles (hasta el ' + r.vence.split('-').reverse().join('/') + ').';
+					fila('Fecha y hora', r.fecha);
+					fila('Proveedor', 'papaya.com.pe · RUC 10422995566');
+					fila('Tipo', r.tipo === 'reclamo' ? 'Reclamo' : 'Queja');
+					fila('Consumidor', r.nombre + ' · ' + r.tipoDoc + ' ' + r.numDoc);
+					fila('Domicilio', r.domicilio);
+					fila('Contacto', r.telefono + ' · ' + r.email);
+					if (r.apoderado) fila('Padre, madre o apoderado', r.apoderado);
+					fila(r.bien === 'producto' ? 'Producto' : 'Servicio', r.descripcion);
+					fila('Monto reclamado', r.monto === null ? '—' : 'S/ ' + Number(r.monto).toFixed(2));
+					fila('Detalle', r.detalle);
+					fila('Pedido', r.pedido);
+					form.hidden = true;
+					$('constancia').hidden = false;
+					$('constancia').scrollIntoView({ behavior: 'smooth' });
+				}
+
+				form.addEventListener('submit', function (e) {
+					e.preventDefault();
+					avisar('');
+					if (!form.checkValidity()) {
+						var malo = form.querySelector(':invalid');
+						var etiqueta = malo.closest('label');
+						avisar(malo.name === 'acepta' ? 'Debes confirmar que los datos son verdaderos.' : 'Revisa: ' + (etiqueta ? etiqueta.firstChild.textContent.trim() : 'los datos'));
+						malo.focus();
+						return;
+					}
+					var f = new FormData(form);
+					var cuerpo = {};
+					f.forEach(function (v, k) { cuerpo[k] = typeof v === 'string' ? v.trim() : v; });
+					cuerpo.acepta = true;
+					$('enviar').disabled = true;
+					$('enviar').textContent = 'Enviando…';
+					fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(cuerpo) })
+						.then(function (r) { return r.json(); })
+						.catch(function () { return { ok: false, mensaje: 'No pudimos enviar tu hoja. Revisa tu conexión e intenta de nuevo, o escríbenos por WhatsApp al 924 997 492.' }; })
+						.then(function (r) {
+							$('enviar').disabled = false;
+							$('enviar').textContent = 'Enviar hoja de reclamación';
+							if (!r.ok) return avisar(r.mensaje || 'No pudimos enviar tu hoja. Intenta de nuevo.');
+							mostrar(r.reclamo, r.copia);
+						});
+				});
+			})();
+		</script>
+	</body>
+</html>

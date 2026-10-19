@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Contrata Papaya restobar en línea: elige tu plan, deja tus datos y paga el primer mes con tarjeta o Yape.">
+		<link rel="icon" href="/images/favicons/favicon.ico">
+		<link rel="canonical" href="https://papaya.com.pe/contratar.html">
+		<title>Contratar Papaya | Papaya.com.pe</title>
+		<style>
+			@font-face { font-family: 'Quicksand'; src: url('assets/fonts/Quicksand-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+			@font-face { font-family: 'Quicksand'; src: url('assets/fonts/Quicksand-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+			:root { --morado: #9E38CF; --verde: #43CE8B; --texto: #2b2b33; --suave: #6b6b78; --borde: #e3e1ea; --fondo: #f7f6fa; --error: #c62828; }
+			* { box-sizing: border-box; }
+			body { margin: 0; font-family: 'Quicksand', system-ui, sans-serif; color: var(--texto); background: var(--fondo); line-height: 1.5; }
+			header { background: #fff; border-bottom: 1px solid var(--borde); }
+			header .barra { max-width: 760px; margin: 0 auto; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+			header img { height: 34px; }
+			header a.volver { color: var(--suave); text-decoration: none; font-size: 15px; }
+			main { max-width: 760px; margin: 0 auto; padding: 28px 16px 48px; }
+			h1 { font-size: 28px; margin: 0 0 6px; }
+			h2 { font-size: 19px; margin: 0 0 14px; }
+			.intro { color: var(--suave); margin: 0 0 26px; }
+			.caja { background: #fff; border: 1px solid var(--borde); border-radius: 14px; padding: 22px; margin-bottom: 18px; }
+			.planes { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+			.plan { position: relative; display: block; border: 2px solid var(--borde); border-radius: 12px; padding: 14px 16px; cursor: pointer; }
+			.plan input { position: absolute; opacity: 0; }
+			.plan:has(input:checked) { border-color: var(--morado); background: #faf5fd; }
+			.plan:has(input:focus-visible) { outline: 3px solid #c99be3; outline-offset: 2px; }
+			.plan b { display: block; font-size: 17px; }
+			.plan span { color: var(--suave); }
+			.plan .precio { color: var(--texto); font-size: 22px; font-weight: 700; }
+			.campos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+			.campos .ancho { grid-column: 1 / -1; }
+			label { display: block; font-weight: 700; font-size: 15px; }
+			input[type=text], input[type=email], input[type=tel] { display: block; width: 100%; margin-top: 5px; padding: 11px 12px; font: inherit; font-weight: 400; border: 1px solid #cfccd9; border-radius: 9px; background: #fff; }
+			input:focus { outline: 2px solid var(--morado); outline-offset: 0; border-color: var(--morado); }
+			.check { display: flex; gap: 8px; align-items: flex-start; font-weight: 400; margin-top: 16px; }
+			.check input { margin-top: 4px; }
+			a { color: var(--morado); }
+			.resumen { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 1px solid var(--borde); padding-top: 14px; margin-top: 4px; }
+			.resumen .total { font-size: 26px; font-weight: 700; }
+			.nota { color: var(--suave); font-size: 14px; margin: 8px 0 0; }
+			button.pagar { display: block; width: 100%; margin-top: 18px; padding: 15px; font: inherit; font-size: 18px; font-weight: 700; color: #fff; background: var(--morado); border: 0; border-radius: 10px; cursor: pointer; }
+			button.pagar:hover { background: #8a2fb6; }
+			button.pagar:disabled { background: #b9a6c4; cursor: wait; }
+			.mensaje { padding: 12px 14px; border-radius: 9px; margin: 14px 0 0; }
+			.mensaje.error { background: #fdecec; color: var(--error); }
+			.mensaje.aviso { background: #fff6e0; color: #7a5300; }
+			.exito { text-align: center; }
+			.exito .icono { width: 64px; height: 64px; margin: 0 auto 10px; border-radius: 50%; background: var(--verde); color: #fff; font-size: 36px; line-height: 64px; }
+			.medios { color: var(--suave); font-size: 14px; text-align: center; margin: 10px 0 0; }
+			.demo { text-align: center; color: var(--suave); }
+			footer { border-top: 1px solid var(--borde); background: #fff; }
+			footer ul { max-width: 760px; margin: 0 auto; padding: 18px 16px; list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: center; font-size: 14px; color: var(--suave); }
+			[hidden] { display: none !important; }
+			@media (max-width: 560px) { .campos { grid-template-columns: 1fr; } h1 { font-size: 24px; } }
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="barra">
+				<a href="./"><img src="images/logo.png" alt="Papaya restobar"></a>
+				<a class="volver" href="./#pricing">← Ver planes</a>
+			</div>
+		</header>
+
+		<main>
+			<h1>Contrata Papaya en línea</h1>
+			<p class="intro">Elige tu plan, deja tus datos y paga el primer mes. Después te contactamos para coordinar la instalación y la capacitación de tu equipo.</p>
+
+			<p id="cargando" class="caja">Cargando planes…</p>
+			<div id="no-disponible" class="caja" hidden>
+				<p>El pago en línea no está disponible en este momento.</p>
+				<p>Escríbenos por <a href="https://wa.me/51924997492?text=Hola%2C%20quiero%20contratar%20Papaya">WhatsApp</a> y te ayudamos a contratar.</p>
+			</div>
+
+			<form id="formulario" novalidate hidden>
+				<section class="caja">
+					<h2>1. Elige tu plan</h2>
+					<div id="planes" class="planes" role="radiogroup" aria-label="Plan"></div>
+					<p class="nota">Pago mensual. Incluye soporte y actualizaciones. Mira lo que incluye cada plan en la <a href="./#pricing">tabla de planes</a>.</p>
+				</section>
+
+				<section class="caja">
+					<h2>2. Tus datos</h2>
+					<div class="campos">
+						<label>RUC del negocio <input type="text" name="ruc" inputmode="numeric" maxlength="11" autocomplete="off" required pattern="(10|15|17|20)\d{9}"></label>
+						<label>Razón social <input type="text" name="razonSocial" maxlength="150" autocomplete="organization" required></label>
+						<label class="ancho">Tu nombre <input type="text" name="contacto" maxlength="100" autocomplete="name" required></label>
+						<label>Correo (te llega el comprobante) <input type="email" name="email" maxlength="120" autocomplete="email" required></label>
+						<label>Celular <input type="tel" name="telefono" maxlength="20" autocomplete="tel" required></label>
+					</div>
+					<label class="check"><input type="checkbox" name="acepta" required> <span>Acepto los <a href="./terminos-condiciones.html" target="_blank">Términos y Condiciones</a>, la <a href="./privacidad.html" target="_blank">Política de Privacidad</a> y la <a href="./politica-reembolso.html" target="_blank">Política de cancelación y reembolsos</a>.</span></label>
+				</section>
+
+				<section class="caja">
+					<h2>3. Paga el primer mes</h2>
+					<div class="resumen">
+						<span id="resumen-plan">Plan</span>
+						<span class="total" id="resumen-total">S/ 0.00</span>
+					</div>
+					<p class="nota">Desde el segundo mes pagas mensualmente con el enlace de pago que te enviamos. <a href="./politica-reembolso.html" target="_blank">Ver política de cancelación y reembolsos</a>.</p>
+					<button class="pagar" id="pagar" type="submit">Pagar</button>
+					<p class="medios">Tarjeta de crédito o débito y Yape · Pago seguro con Culqi</p>
+					<p id="mensaje" class="mensaje" role="alert" hidden></p>
+				</section>
+			</form>
+
+			<section id="exito" class="caja exito" hidden aria-live="polite">
+				<div class="icono" aria-hidden="true">✓</div>
+				<h2>¡Pago recibido!</h2>
+				<p>Gracias por elegir Papaya. Te contactaremos al celular que dejaste para coordinar la instalación.</p>
+				<p class="nota" id="exito-ref"></p>
+			</section>
+
+			<p class="demo">¿Prefieres verlo antes de contratar? <a href="https://demo.papaya.com.pe/demo">Mira la demo</a></p>
+		</main>
+
+		<footer>
+			<ul>
+				<li>© <span id="anio">2026</span> papaya.com.pe</li>
+				<li><a href="./terminos-condiciones.html">Términos y Condiciones</a></li>
+				<li><a href="./privacidad.html">Política de privacidad</a></li>
+				<li><a href="./politica-reembolso.html">Cancelación y reembolsos</a></li>
+				<li><a href="./libro-reclamaciones.html">Libro de Reclamaciones</a></li>
+			</ul>
+		</footer>
+
+		<script>
+			// Contratación en línea: form/contratar.php da los planes y cobra con la llave SECRETA de Culqi;
+			// aquí solo el checkout de Culqi, que entrega un token de la tarjeta/Yape (los datos de la tarjeta no pasan por nosotros).
+			// Con la consola en producción se puede usar su API (mismo contrato): 'https://pacman-consola.papaya.com.pe/api/contratar'.
+			(function () {
+				var API = 'form/contratar.php';
+				var YAPE_MAX = 200000; // céntimos: límite de Culqi para Yape
+
+				var $ = function (id) { return document.getElementById(id); };
+				var form = $('formulario');
+				var boton = $('pagar');
+				var planes = [];
+				var llave = '';
+				var deviceId = '';
+				var token = '';
+				var idsolicitud = null;
+				var datos = null;
+				var checkout = null;
+				$('anio').textContent = new Date().getFullYear();
+
+				var soles = function (c) { return 'S/ ' + (c / 100).toFixed(2); };
+				var normal = function (t) { return String(t || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); };
+				var planElegido = function () {
+					var r = form.querySelector('input[name=idplan]:checked');
+					return r ? planes.find(function (p) { return String(p.idplan) === r.value; }) : null;
+				};
+
+				function avisar(texto, tipo) {
+					var m = $('mensaje');
+					m.textContent = texto || '';
+					m.className = 'mensaje ' + (tipo || 'error');
+					m.hidden = !texto;
+				}
+				function ocupado(si) {
+					boton.disabled = si;
+					var p = planElegido();
+					boton.textContent = si ? 'Procesando…' : 'Pagar ' + (p ? soles(p.monto) : '');
+				}
+				function cargar(src) {
+					return new Promise(function (ok, mal) {
+						var s = document.createElement('script');
+						s.src = src;
+						s.onload = ok;
+						s.onerror = mal;
+						document.head.appendChild(s);
+					});
+				}
+				function noDisponible() {
+					$('cargando').hidden = true;
+					form.hidden = true;
+					$('no-disponible').hidden = false;
+				}
+
+				function pintarPlanes() {
+					var pedido = normal(new URLSearchParams(location.search).get('plan'));
+					var elegido = planes.find(function (p) { return pedido && normal(p.nombre).indexOf(pedido) >= 0; }) || planes[0];
+					$('planes').innerHTML = '';
+					planes.forEach(function (p) {
+						var l = document.createElement('label');
+						l.className = 'plan';
+						var i = document.createElement('input');
+						i.type = 'radio';
+						i.name = 'idplan';
+						i.value = p.idplan;
+						i.checked = p === elegido;
+						var b = document.createElement('b');
+						b.textContent = p.nombre;
+						var precio = document.createElement('span');
+						precio.innerHTML = '<span class="precio"></span> / mes';
+						precio.querySelector('.precio').textContent = soles(p.monto);
+						l.append(i, b, precio);
+						$('planes').appendChild(l);
+					});
+					resumir();
+				}
+				function resumir() {
+					var p = planElegido();
+					if (!p) return;
+					$('resumen-plan').textContent = p.nombre + ' · primer mes';
+					$('resumen-total').textContent = soles(p.monto);
+					ocupado(false);
+				}
+
+				function enviar(cuerpo) {
+					ocupado(true);
+					avisar('');
+					return fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(cuerpo) })
+						.then(function (r) { return r.json(); })
+						.catch(function () { return { resultado: 'error', mensaje: 'No pudimos confirmar el pago. No vuelvas a pagar: te escribiremos al correo que dejaste.' }; })
+						.then(function (r) {
+							if (r.resultado === 'pagado') {
+								form.hidden = true;
+								$('exito').hidden = false;
+								$('exito-ref').textContent = 'N.° de solicitud: ' + r.idsolicitud;
+								$('exito').scrollIntoView({ behavior: 'smooth' });
+								return;
+							}
+							if (r.resultado === 'requiere_accion' && !cuerpo.auth3ds) {
+								// El banco pide autenticar (3DS): modal de Culqi; el resultado llega por postMessage.
+								idsolicitud = r.idsolicitud;
+								var p = planElegido();
+								window.Culqi3DS.settings = { charge: { totalAmount: p.monto, returnUrl: location.href, currency: 'PEN' }, card: { email: datos.email } };
+								window.Culqi3DS.initAuthentication(token);
+								return;
+							}
+							idsolicitud = null;
+							ocupado(false);
+							avisar(r.mensaje || 'No se pudo procesar el pago. Intenta de nuevo.', r.resultado === 'rechazado' ? 'aviso' : 'error');
+						});
+				}
+
+				window.addEventListener('message', function (ev) {
+					if (ev.origin !== location.origin || !ev.data || !idsolicitud) return;
+					if (ev.data.parameters3DS) enviar({ tokenId: token, idsolicitud: idsolicitud, auth3ds: ev.data.parameters3DS, deviceId: deviceId || undefined });
+					else if (ev.data.error) {
+						idsolicitud = null;
+						ocupado(false);
+						avisar('No se pudo verificar la tarjeta con tu banco. Prueba de nuevo o con otra tarjeta.', 'aviso');
+					}
+				});
+
+				form.addEventListener('change', function (e) { if (e.target.name === 'idplan') resumir(); });
+				form.addEventListener('submit', function (e) {
+					e.preventDefault();
+					avisar('');
+					if (!form.checkValidity()) {
+						var malo = form.querySelector(':invalid');
+						var etiqueta = malo.closest('label');
+						avisar(malo.name === 'acepta' ? 'Debes aceptar los Términos y Condiciones.' : 'Revisa: ' + (etiqueta ? etiqueta.firstChild.textContent.trim() : 'los datos'));
+						malo.focus();
+						return;
+					}
+					if (!window.CulqiCheckout) return avisar('No se pudo cargar el formulario de pago. Recarga la página.');
+					var p = planElegido();
+					var f = new FormData(form);
+					datos = {
+						idplan: p.idplan,
+						ruc: String(f.get('ruc')).trim(),
+						razonSocial: String(f.get('razonSocial')).trim(),
+						contacto: String(f.get('contacto')).trim(),
+						email: String(f.get('email')).trim(),
+						telefono: String(f.get('telefono')).trim(),
+						acepta: true,
+						montoVisto: p.monto
+					};
+					window.Culqi3DS && window.Culqi3DS.reset && window.Culqi3DS.reset();
+					var medios = { yape: p.monto <= YAPE_MAX, tarjeta: true };
+					checkout = new window.CulqiCheckout(llave, {
+						settings: { title: 'Papaya', currency: 'PEN', amount: p.monto },
+						client: { email: datos.email },
+						options: { lang: 'auto', installments: false, modal: true, paymentMethods: medios, paymentMethodsSort: Object.keys(medios) },
+						appearance: { theme: 'default', menuType: 'sidebar', hiddenCulqiLogo: false, hiddenBanner: false }
+					});
+					checkout.culqi = function () {
+						if (checkout.token && checkout.token.id) {
+							token = checkout.token.id;
+							checkout.close();
+							enviar(Object.assign({ tokenId: token, deviceId: deviceId || undefined }, datos));
+						} else if (checkout.error) {
+							avisar(checkout.error.user_message || checkout.error.merchant_message || 'No se pudo procesar el pago.', 'aviso');
+						}
+					};
+					checkout.open();
+				});
+
+				fetch(API, { headers: { Accept: 'application/json' } })
+					.then(function (r) { return r.json(); })
+					.then(function (r) {
+						if (!r.disponible || !r.planes || !r.planes.length) return noDisponible();
+						planes = r.planes;
+						llave = r.llavePublica;
+						pintarPlanes();
+						$('cargando').hidden = true;
+						form.hidden = false;
+						return cargar('https://js.culqi.com/checkout-js')
+							.then(function () { return cargar('https://3ds.culqi.com'); })
+							.then(function () {
+								var c = window.Culqi3DS;
+								c.publicKey = llave;
+								c.options = { showModal: true, showLoading: true, showIcon: true, style: { btnColor: '#9E38CF', btnTextColor: '#FFFFFF' } };
+								return c.generateDevice().then(function (d) { deviceId = d || ''; }).catch(function () {});
+							})
+							.catch(function () { avisar('No se pudo cargar el formulario de pago. Revisa tu conexión y recarga la página.'); });
+					})
+					.catch(noDisponible);
+			})();
+		</script>
+	</body>
+</html>
