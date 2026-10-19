@@ -17,7 +17,8 @@ $c = config();
 $disponible = $c['culqi_publica'] && $c['culqi_secreta'] && dirDatos();
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-	responder(['disponible' => (bool) $disponible, 'llavePublica' => $disponible ? $c['culqi_publica'] : '', 'planes' => $disponible ? PLANES : []]);
+	$motivo = !($c['culqi_publica'] && $c['culqi_secreta']) ? 'faltan las llaves de Culqi en form/config.php' : (dirDatos() ? null : 'no se puede escribir en la carpeta de datos');
+	responder(['disponible' => (bool) $disponible, 'llavePublica' => $disponible ? $c['culqi_publica'] : '', 'planes' => $disponible ? PLANES : [], 'motivo' => $motivo]);
 }
 exigirPost();
 if (!$disponible) responder(['resultado' => 'error', 'mensaje' => 'El pago en línea no está disponible en este momento.'], 503);
