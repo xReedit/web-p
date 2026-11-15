@@ -8,8 +8,8 @@
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
 		</script>
-		<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11396108781"></script>
-		<script>gtag('config', 'AW-11396108781');</script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18576801506"></script>
+		<script>gtag('config', 'AW-18576801506');</script>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Contrata Papaya restobar en línea: elige tu plan, deja tus datos y paga el primer mes con tarjeta o Yape.">
@@ -228,7 +228,7 @@
 						.then(function (r) {
 							if (r.resultado === 'pagado') {
 								var pagado = planElegido();
-								if (window.gtag) gtag('event', 'conversion', { send_to: 'AW-11396108781/S3T9CMPT1PIYEO2ji7oq', value: pagado ? pagado.monto / 100 : 0, currency: 'PEN', transaction_id: String(r.idsolicitud) });
+								if (window.gtag) gtag('event', 'conversion', { send_to: 'AW-18576801506/RHMlCIGQ9LgdEOL9jZpF', value: pagado ? pagado.monto / 100 : 0, currency: 'PEN', transaction_id: String(r.idsolicitud) });
 								form.hidden = true;
 								$('exito').hidden = false;
 								$('exito-ref').textContent = 'N.° de solicitud: ' + r.idsolicitud;

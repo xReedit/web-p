@@ -103,18 +103,27 @@
 		<!-- End Meta Pixel Code -->
 
 		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11396108781">
+		<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18576801506">
 		</script>
 		<script>
 		  window.dataLayer = window.dataLayer || [];
 		  function gtag(){dataLayer.push(arguments);}
 		  gtag('js', new Date());
 
-		  gtag('config', 'AW-11396108781');
+		  gtag('config', 'AW-18576801506');
 		  // Conversión solo cuando el visitante muestra interés real: WhatsApp o demo
 		  document.addEventListener('click', function (e) {
 		    var a = e.target.closest && e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href*="demo.papaya.com.pe"]');
-		    if (a) gtag('event', 'conversion', {'send_to': 'AW-11396108781/S3T9CMPT1PIYEO2ji7oq'});
+		    if (!a) return;
+		    var datos = {'send_to': 'AW-18576801506/RHMlCIGQ9LgdEOL9jZpF', 'value': 1.0, 'currency': 'PEN'};
+		    // Pestaña nueva: la página sigue viva, el envío no se pierde
+		    if (a.target === '_blank' || e.ctrlKey || e.metaKey || e.shiftKey) return gtag('event', 'conversion', datos);
+		    // Misma pestaña: esperar a que Google confirme (máx. 1 s, por si un bloqueador lo impide)
+		    e.preventDefault();
+		    var ir = function () { if (ir) { ir = null; window.location = a.href; } };
+		    datos.event_callback = function () { ir && ir(); };
+		    gtag('event', 'conversion', datos);
+		    setTimeout(function () { ir && ir(); }, 1000);
 		  });
 		</script>
 
