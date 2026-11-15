@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
+		<!-- Google tag (GTM-N2HZ8D4H) -->
+		<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-N2HZ8D4H"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+		</script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11396108781"></script>
+		<script>gtag('config', 'AW-11396108781');</script>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Contrata Papaya restobar en línea: elige tu plan, deja tus datos y paga el primer mes con tarjeta o Yape.">
@@ -218,6 +227,8 @@
 						.catch(function () { return { resultado: 'error', mensaje: 'No pudimos confirmar el pago. No vuelvas a pagar: te escribiremos al correo que dejaste.' }; })
 						.then(function (r) {
 							if (r.resultado === 'pagado') {
+								var pagado = planElegido();
+								if (window.gtag) gtag('event', 'conversion', { send_to: 'AW-11396108781/S3T9CMPT1PIYEO2ji7oq', value: pagado ? pagado.monto / 100 : 0, currency: 'PEN', transaction_id: String(r.idsolicitud) });
 								form.hidden = true;
 								$('exito').hidden = false;
 								$('exito-ref').textContent = 'N.° de solicitud: ' + r.idsolicitud;
