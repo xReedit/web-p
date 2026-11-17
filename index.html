@@ -111,10 +111,18 @@
 		  gtag('js', new Date());
 
 		  gtag('config', 'AW-18576801506');
+		  // UTM/gclid del anuncio: se pasan a la demo para saber qué anuncio trajo cada lead
+		  var atribucion = new URLSearchParams();
+		  new URLSearchParams(location.search).forEach(function (v, k) { if (/^(utm_\w+|gclid)$/.test(k)) atribucion.set(k, v); });
 		  // Conversión solo cuando el visitante muestra interés real: WhatsApp o demo
 		  document.addEventListener('click', function (e) {
 		    var a = e.target.closest && e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href*="demo.papaya.com.pe"]');
 		    if (!a) return;
+		    if (a.hostname === 'demo.papaya.com.pe') {
+		      var url = new URL(a.href);
+		      atribucion.forEach(function (v, k) { if (!url.searchParams.has(k)) url.searchParams.set(k, v); });
+		      a.href = url.href;
+		    }
 		    var datos = {'send_to': 'AW-18576801506/RHMlCIGQ9LgdEOL9jZpF', 'value': 1.0, 'currency': 'PEN'};
 		    // Pestaña nueva: la página sigue viva, el envío no se pierde
 		    if (a.target === '_blank' || e.ctrlKey || e.metaKey || e.shiftKey) return gtag('event', 'conversion', datos);
